@@ -23,8 +23,8 @@
     font-size: 3.7rem;
     font-weight: 600;
     line-height: 1.1;
-    color: #ffffff !important;
-    font-family: Ubuntu, sans-serif !important;
+    color: #ffffff;
+    font-family: Ubuntu, sans-serif;
     pointer-events: auto;
     word-wrap: break-word;
     position: relative;
@@ -39,8 +39,8 @@
     font-size: 1.8rem;
     font-weight: 600;
     line-height: 1.1;
-    color: #fffefe !important;
-    font-family: Ubuntu, sans-serif !important;
+    color: #fffefe;
+    font-family: Ubuntu, sans-serif;
     pointer-events: auto;
     word-wrap: break-word;
     position: relative;
@@ -96,5 +96,6 @@
     display: inline-block;
     border: 15px solid rgb(253, 251, 251);
     width: 330px;
+    height: 245px;
     max-width: 100%;
 }
