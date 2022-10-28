@@ -12,7 +12,6 @@ import { PagesModule } from './feature/pages/pages.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule,
     CoreModule
   ],
   providers: [],
