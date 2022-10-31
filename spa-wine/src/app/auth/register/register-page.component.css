@@ -137,17 +137,6 @@ label:nth-of-type(2) {
     margin-top: 3em;
 }
 
-.error-container>p {
-    background: #BC243C;
-    border-radius: 0.5rem;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-    font-style: italic;
-    padding: 10px;
-    margin-bottom: 16px;
-    height: auto;
-    display: inline-block;
-}
 
 
 
