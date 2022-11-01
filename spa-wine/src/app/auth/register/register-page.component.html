@@ -3,68 +3,78 @@
     <div class="info">
       <h2>Please sing up to discover new wines and share your preference.</h2>
     </div>
-    <form #registerForm="ngForm" (ngSubmit)="onSubmit()" method="post" class="signupForm">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="signupForm">
       <h2>Sign Up</h2>
       <ul class="noBullet">
         <li>
           <label for="first-name">First Name:</label>
-          <input #firstName="ngModel" ngModel type="text" class="inputFields" id="first-name" name="firstName" 
-            placeholder="Peter" required minlength="2" />
+          <input formControlName="firstName" type="text" class="inputFields" id="first-name" name="firstName"
+            placeholder="Peter" />
 
-          <ng-container *ngIf="firstName.touched && firstName.errors">
-            <app-error>
+          <ng-container
+            *ngIf="registerForm.controls['firstName'].touched && registerForm.controls['firstName'].invalid">
+            <app-error *ngIf="registerForm.controls['firstName'].errors?.['required']">
+              Please fill in first name!
+            </app-error>
+            <app-error *ngIf="registerForm.controls['firstName'].errors?.['minlength']">
               First name must be at least 2 characters long!
             </app-error>
           </ng-container>
         </li>
+
         <li>
           <label for="last-name">Last Name:</label>
-          <input #lastName="ngModel" ngModel type="text" class="inputFields" id="last-name" name="lastName" 
-            placeholder="Johnson" required minlength="2" />
+          <input formControlName="lastName" type="text" class="inputFields" id="last-name" name="lastName"
+            placeholder="Johnson" />
 
-          <ng-container *ngIf="lastName.touched && lastName.errors">
-            <app-error> Last name must be at least 2 letter long! </app-error>
+          <ng-container *ngIf="registerForm.controls['lastName'].touched && registerForm.controls['lastName'].invalid">
+            <app-error *ngIf="registerForm.controls['lastName'].errors?.['required']"> Please fill in last name!
+            </app-error>
+            <app-error *ngIf="registerForm.controls['lastName'].errors?.['minlength']"> Last name must be at least 2
+              letter long! </app-error>
           </ng-container>
         </li>
         <li>
           <label for="email">Email:</label>
-          <input #email="ngModel" ngModel type="text" class="inputFields" id="email" name="email" 
-            placeholder="alex@gmail.com" required email />
-          <ng-container *ngIf="email.touched && email.errors">
-            <app-error> Please fill in a valid email! </app-error>
+          <input formControlName="email" type="text" class="inputFields" id="email" name="email"
+            placeholder="alex@gmail.com" />
+          <ng-container *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid">
+            <app-error *ngIf="registerForm.controls['email'].errors?.['required']"> Please fill in an email!
+            </app-error>
+            <app-error *ngIf="registerForm.controls['email'].errors?.['email']"> Please fill in a valid email!
+            </app-error>
           </ng-container>
         </li>
+
+        <!-- <div formGroupName="passwords"> -->
         <li>
           <label for="password">Password:</label>
-          <input #password="ngModel" ngModel type="password" class="inputFields" id="password" name="password"
-            placeholder="******" required minlength="5" />
-          <ng-container *ngIf="password.touched && password.errors">
-            <app-error> Pasword must be at least 5 characters! </app-error>
+          <input formControlName="password" type="password" class="inputFields" id="password" name="password"
+            placeholder="******" />
+          <ng-container *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid">
+            <app-error *ngIf="registerForm.controls['password'].errors?.['required']"> Please fill in a password!
+            </app-error>
+            <app-error *ngIf="registerForm.controls['password'].errors?.['minlength']"> Pasword must be at least 5
+              characters! </app-error>
           </ng-container>
         </li>
         <li>
-          <label for="repeat-password">Repeat-Password:</label>
-          <input #rePassword="ngModel" ngModel type="password" class="inputFields" id="repeat-password"
-            name="rePassword" placeholder="******" required />
-          <ng-container *ngIf="
-              password.value?.trim() != rePassword.value?.trim() &&
-              rePassword.touched
-            ">
-            <app-error> Paswords don't match! </app-error>
+          <label for="rePassword">Repeat-Password:</label>
+          <input formControlName="rePassword" type="password" class="inputFields" id="rePassword" name="rePassword"
+            placeholder="******" />
+          <ng-container
+            *ngIf="registerForm.controls['rePassword'].touched && registerForm.controls['rePassword'].invalid">
+            <app-error *ngIf="registerForm.controls['rePassword'].errors?.['required']"> Repeat password is required!
+            </app-error>
+            <app-error
+              *ngIf="registerForm.controls['rePassword'].errors?.['passwordsNotMatch'] && !registerForm.controls['rePassword'].errors?.['required']">
+              Paswords don't match! </app-error>
           </ng-container>
         </li>
+        <!-- </div> -->
         <li id="center-btn">
-          <button [disabled]="
-              registerForm.invalid &&
-              password.value?.trim() != rePassword.value?.trim()
-            " id="join-btn">
-            {{
-            registerForm.valid &&
-            password.value?.trim() == rePassword.value?.trim()
-            ? "Join"
-            : "Please fill in the form"
-            }}
-          </button>
+          <button [disabled]="registerForm.invalid" id="join-btn">{{registerForm.valid ? 'Join' : 'Please fill in the
+            form'}}</button>
         </li>
       </ul>
     </form>

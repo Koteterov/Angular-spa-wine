@@ -12,11 +12,9 @@
                     <input #email="ngModel" ngModel type="text" class="inputFields" id="email" name="email"
                         placeholder="alex@gmail.com" required email />
 
-                    <ng-container *ngIf="(email.pristine || email.untouched) && email.invalid">
-                        <app-error> Email is required! </app-error>
-                    </ng-container>
-                    <ng-container *ngIf="email.touched && email.invalid">
-                        <app-error> Please fill in a valid email! </app-error>
+                    <ng-container *ngIf=" email.touched && email.invalid">
+                        <app-error *ngIf="email.errors?.['required']"> Email is required! </app-error>
+                        <app-error *ngIf="email.errors?.['email']"> Please fill in a valid email! </app-error>
                     </ng-container>
 
                 </li>
@@ -24,11 +22,10 @@
                     <label for="password">Password:</label>
                     <input #password="ngModel" ngModel type="password" class="inputFields" id="password" name="password"
                         placeholder="*******" required minlength="5" />
-                    <ng-container *ngIf="(password.pristine || password.untouched) && password.invalid">
-                        <app-error> Password is required!</app-error>
-                    </ng-container>
+
                     <ng-container *ngIf="password.touched && password.invalid">
-                        <app-error>
+                        <app-error *ngIf="password.errors?.['required']"> Password is required!</app-error>
+                        <app-error *ngIf="password.errors?.['minlength']">
                             Password must be at leat 5 letters long!
                         </app-error>
                     </ng-container>

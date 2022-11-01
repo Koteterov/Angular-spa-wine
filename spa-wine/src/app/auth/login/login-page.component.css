@@ -91,6 +91,10 @@
     outline: none;
 }
 
+input.ng-invalid.ng-touched {
+    border: 2px solid #A94442;
+}
+
 .noBullet {
     list-style-type: none;
     padding: 0;
