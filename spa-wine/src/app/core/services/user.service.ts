@@ -17,24 +17,48 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  login$(data: { email: string; password: string }): Observable<IUser> {
+
+  register$(data: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+  }): Observable<IUser> {
     return this.http
-      .post<IUser>(`${environment.URL}/users/login`, data, {withCredentials: false})
-      .pipe(tap((user) => (this.user = user)));
+      .post<IUser>(`${environment.URL}/users/register`, data, {
+        withCredentials: true,
+      })
+      .pipe(tap((user) => {
+        this.user = user;
+        localStorage.setItem('email', user.email);
+        localStorage.setItem('authToken', user['accessToken']);
+        localStorage.setItem('userId', user['_id']);
+    }));
   }
 
-  // login(data: { email: string; password: string }) {
-  //   return this.http.post<IUser>(`/api/users/login`, data).pipe(
-  //     tap((user) => this.user = user)
-  //   );
-  // }
+  login$(data: { email: string; password: string }): Observable<IUser> {
+    return this.http
+      .post<IUser>(`${environment.URL}/users/login`, data, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((user) => {
+          this.user = user;
+          localStorage.setItem('email', user.email);
+          localStorage.setItem('authToken', user['accessToken']);
+          localStorage.setItem('userId', user['_id']);
+        })
+      );
+  }
 
-  //==============
-  // login$(userData: { email: string, password: string }): Observable<IUser> {
-  //   return this.httpClient
-  //     .post<IUser>(`${environment.apiUrl}/login`, userData, { withCredentials: true, observe: 'response' })
-  //     .pipe(
-  //       map(response => response.body),
-  //     )
-  // }
+  logout() {
+    return this.http.post<IUser>(`${environment.URL}/users/logout`, {}).pipe(
+      tap(() => {
+        this.user = null;
+        localStorage.removeItem('email');
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userId');
+      })
+    );
+  }
 }

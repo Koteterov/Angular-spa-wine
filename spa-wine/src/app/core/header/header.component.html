@@ -8,7 +8,7 @@
         <!-- Logged users -->
         <li><a routerLink="/create">Create Post</a></li>
         <li><a routerLink="/my">Posts of ...</a></li>
-        <li><a routerLink="/">Logout</a></li>
+        <li (click)="logout()"><a href="javascript:void(0)">Logout</a></li>
         <!-- Guest users -->
         <li><a routerLink="/register">Register</a></li>
         <li><a routerLink="login">Login</a></li>

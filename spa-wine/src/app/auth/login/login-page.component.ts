@@ -27,7 +27,7 @@ export class LoginPageComponent implements OnInit {
     
 
     this.userService.login$(this.loginForm.value).subscribe({
-      next: () => {
+      next: (user) => {
         this.router.navigate(['/home'])
 
       },
