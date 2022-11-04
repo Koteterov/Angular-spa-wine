@@ -63,44 +63,18 @@ export class RegisterPageComponent implements OnInit {
   onSubmit(): void {
     this.errorMessage = '';
 
-    console.log(this.registerForm.value);
+    if (this.registerForm.invalid) {
+      return;
+    }
 
     this.userService.register$(this.registerForm.value).subscribe({
       next: () => {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home']);
       },
       error: (err) => {
-        this.errorMessage = err.error.message
+        this.errorMessage = err.error.message;
         console.log(this.errorMessage);
-      }
-    })
-
-
-    //    this.userService.login$(this.loginForm.value).subscribe({
-    //   next: (user) => {
-    //     this.router.navigate(['/home'])
-
-    //   },
-    //   error: (err) => {
-    //     this.errorMessage = err.error.message
-    //     console.log(this.errorMessage, 1234);
-    //   }
-    // })
-
-
-    //===============
-    // register(): void {
-    //   if (this.form.invalid) { return; }
-    //   this.userService.register(this.form.value).subscribe({
-    //     next: () => {
-    //       this.router.navigate(['/']);
-    //     },
-    //     error: (err) => {
-    //       console.error(err);
-    //     }
-    //   })
-    // }
-
-    // this.registerForm.reset()
+      },
+    });
   }
 }

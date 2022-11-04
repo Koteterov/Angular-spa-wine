@@ -1,17 +1,21 @@
 <nav>
-    <!-- Do not forget to change the path to the image -->
     <img src="../../../assets/img/logo.png" alt="logo_picture">
 
     <ul class="menu">
         <li><a routerLink="/home">Home</a></li>
         <li><a routerLink="/all">All Posts</a></li>
-        <!-- Logged users -->
-        <li><a routerLink="/create">Create Post</a></li>
-        <li><a routerLink="/my">Posts of ...</a></li>
-        <li (click)="logout()"><a href="javascript:void(0)">Logout</a></li>
-        <!-- Guest users -->
-        <li><a routerLink="/register">Register</a></li>
-        <li><a routerLink="login">Login</a></li>
+
+        <ng-container *ngIf="userService.isLogged">
+            <li><a routerLink="/create">Create Post</a></li>
+            <li><a routerLink="/my">Posts of ({{user}})</a></li>
+            <li (click)="logout()"><a href="javascript:void(0)">Logout</a></li>
+        </ng-container>
+
+        <ng-container *ngIf="!userService.isLogged">
+            <li><a routerLink="/register">Register</a></li>
+            <li><a routerLink="login">Login</a></li>
+
+        </ng-container >
     </ul>
 
 </nav>

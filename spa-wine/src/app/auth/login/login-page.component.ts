@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.loginForm.value);
+    
     this.errorMessage = '';
 
     
