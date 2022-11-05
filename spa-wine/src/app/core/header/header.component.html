@@ -2,16 +2,18 @@
     <img src="../../../assets/img/logo.png" alt="logo_picture">
 
     <ul class="menu">
-        <li><a routerLink="/home">Home</a></li>
+        <!-- <li><a routerLink="/home">Home</a></li> -->
+        <li><a routerLink="/home">123 >>{{(isLogged$ | async)}}</a></li>
+        <li><a routerLink="/home">123 >>{{(user$ | async)?.email}}</a></li>
         <li><a routerLink="/all">All Posts</a></li>
 
-        <ng-container *ngIf="userService.isLogged">
+        <ng-container *ngIf="(userService.isLoggedIn$ | async)">
             <li><a routerLink="/create">Create Post</a></li>
-            <li><a routerLink="/my">Posts of ({{user}})</a></li>
-            <li (click)="logout()"><a href="javascript:void(0)">Logout</a></li>
+            <li><a routerLink="/my">Posts of ({{(user$ | async)?.email}})</a></li>
+            <li (click)="logoutHandler()"><a href="javascript:void(0)">Logout</a></li>
         </ng-container>
 
-        <ng-container *ngIf="!userService.isLogged">
+        <ng-container *ngIf="!(userService.isLoggedIn$ | async)">
             <li><a routerLink="/register">Register</a></li>
             <li><a routerLink="login">Login</a></li>
 

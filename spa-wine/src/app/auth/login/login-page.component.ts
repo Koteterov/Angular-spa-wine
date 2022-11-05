@@ -20,7 +20,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  handleLogin(): void {
     
     this.errorMessage = '';
 

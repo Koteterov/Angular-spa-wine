@@ -60,7 +60,7 @@ export class RegisterPageComponent implements OnInit {
     this.registerForm.get('rePassword')!.valueChanges.subscribe(console.log);
   }
 
-  onSubmit(): void {
+  handleRegister(): void {
     this.errorMessage = '';
 
     if (this.registerForm.invalid) {

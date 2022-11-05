@@ -14,18 +14,10 @@ export class UserService {
   currentUser$ = this._currentUser.asObservable();
   isLoggedIn$ = this.currentUser$.pipe(map((user) => !!user));
 
-  // private _currentUser = new BehaviorSubject(undefined);
-  // currentUser$ = this._currentUser.asObservable();
-  // isLogged$ = this.currentUser$.pipe(map(user => !!user))
 
-  loginStatus$ = new BehaviorSubject<boolean>(false);
-
-
-  user: IUser | null | undefined;
-
-  get isLogged(): boolean {
-    return localStorage.hasOwnProperty("userId");
-  }
+  // get isLogged(): boolean {
+  //   return localStorage.hasOwnProperty("userId");
+  // }
 
   constructor(private http: HttpClient) {}
 
@@ -41,7 +33,6 @@ export class UserService {
       })
       .pipe(
         tap((user) => {
-          this.user = user;
           localStorage.setItem('email', user.email);
           localStorage.setItem('authToken', user['accessToken']);
           localStorage.setItem('userId', user['_id']);
@@ -57,7 +48,6 @@ export class UserService {
       })
       .pipe(
         tap((user) => {
-          this.user = user;
           localStorage.setItem('email', user.email);
           localStorage.setItem('authToken', user['accessToken']);
           localStorage.setItem('userId', user['_id']);
@@ -68,11 +58,18 @@ export class UserService {
   logout$() {
     return this.http.post<IUser>(`${environment.URL}/users/logout`, {}).pipe(
       tap(() => {
-        this.user = null;
         localStorage.removeItem('email');
         localStorage.removeItem('authToken');
         localStorage.removeItem('userId');
       })
     );
+  }
+
+  handleLogin(newUser: IUser) {
+    this._currentUser.next(newUser)
+  }
+
+  handleLogout() {
+    this._currentUser.next(undefined)
   }
 }
