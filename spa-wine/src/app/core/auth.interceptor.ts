@@ -15,10 +15,7 @@ import { IUser } from '../shared/interfaces/user';
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private userService: UserService) {}
 
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       tap((event) => {
         if (event instanceof HttpResponse) {

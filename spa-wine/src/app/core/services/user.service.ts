@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { IUser } from 'src/app/shared/interfaces/user';
 import { environment } from 'src/environments/environment';
 
@@ -10,10 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
   private _currentUser = new BehaviorSubject<IUser | undefined>(undefined);
-
   currentUser$ = this._currentUser.asObservable();
   isLoggedIn$ = this.currentUser$.pipe(map((user) => !!user));
-
 
   // get isLogged(): boolean {
   //   return localStorage.hasOwnProperty("userId");
@@ -40,7 +38,6 @@ export class UserService {
       );
   }
 
-
   login$(data: { email: string; password: string }): Observable<IUser> {
     return this.http
       .post<IUser>(`${environment.URL}/users/login`, data, {
@@ -56,7 +53,7 @@ export class UserService {
   }
 
   logout$() {
-    return this.http.post<IUser>(`${environment.URL}/users/logout`, {}).pipe(
+    return this.http.post<IUser>(`${environment.URL}/users/logout`, {}, { withCredentials: true }).pipe(
       tap(() => {
         localStorage.removeItem('email');
         localStorage.removeItem('authToken');
@@ -65,11 +62,25 @@ export class UserService {
     );
   }
 
+  authenticate(): Observable<IUser> {
+    return this.http
+      .get<IUser>(`${environment.URL}/users/profile`, { withCredentials: true })
+      .pipe(
+        tap((currentProfile) => {
+          this.handleLogin(currentProfile);
+
+        }),
+        catchError((err) => {
+          return EMPTY;
+        })
+      );
+  }
+
   handleLogin(newUser: IUser) {
-    this._currentUser.next(newUser)
+    this._currentUser.next(newUser);
   }
 
   handleLogout() {
-    this._currentUser.next(undefined)
+    this._currentUser.next(undefined);
   }
 }
