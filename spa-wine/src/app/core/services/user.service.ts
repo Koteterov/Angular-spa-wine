@@ -31,9 +31,9 @@ export class UserService {
       })
       .pipe(
         tap((user) => {
-          localStorage.setItem('email', user.email);
-          localStorage.setItem('authToken', user['accessToken']);
-          localStorage.setItem('userId', user['_id']);
+          // localStorage.setItem('email', user.email);
+          // localStorage.setItem('authToken', user['accessToken']);
+          // localStorage.setItem('userId', user['_id']);
         })
       );
   }
@@ -45,9 +45,9 @@ export class UserService {
       })
       .pipe(
         tap((user) => {
-          localStorage.setItem('email', user.email);
-          localStorage.setItem('authToken', user['accessToken']);
-          localStorage.setItem('userId', user['_id']);
+          // localStorage.setItem('email', user.email);
+          // localStorage.setItem('authToken', user['accessToken']);
+          // localStorage.setItem('userId', user['_id']);
         })
       );
   }
@@ -55,9 +55,9 @@ export class UserService {
   logout$() {
     return this.http.post<IUser>(`${environment.URL}/users/logout`, {}, { withCredentials: true }).pipe(
       tap(() => {
-        localStorage.removeItem('email');
-        localStorage.removeItem('authToken');
-        localStorage.removeItem('userId');
+        // localStorage.removeItem('email');
+        // localStorage.removeItem('authToken');
+        // localStorage.removeItem('userId');
       })
     );
   }
@@ -82,5 +82,9 @@ export class UserService {
 
   handleLogout() {
     this._currentUser.next(undefined);
+  }
+
+  getProfile$(): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.URL}/users/profile`, { withCredentials: true })
   }
 }

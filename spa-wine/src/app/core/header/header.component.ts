@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/shared/interfaces/user';
@@ -9,18 +9,11 @@ import { UserService } from '../services/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent  {
-  
-  // user: string | null = localStorage.getItem("email")
+export class HeaderComponent {
+  user$: Observable<IUser | undefined> = this.userService.currentUser$;
+  isLogged$: Observable<boolean> = this.userService.isLoggedIn$;
 
-  user$: Observable<IUser | undefined> = this.userService.currentUser$
-  isLogged$: Observable<boolean> = this.userService.isLoggedIn$
-
-
-  constructor(public userService: UserService, private router: Router) {
-    
-  }
-  
+  constructor(public userService: UserService, private router: Router) {}
 
   logoutHandler(): void {
     this.userService.logout$().subscribe(() => {
