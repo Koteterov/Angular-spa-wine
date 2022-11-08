@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 
 const cors = require("cors");
+// const corsHeaders = require("./src/middlewares/corsHeaders");
 
 const auth = require("./src/middlewares/auth");
 const wineController = require("./src/controllers/wine");
@@ -20,6 +22,8 @@ async function start() {
   const app = express();
 
   app.use(express.urlencoded({ extended: true }));
+  app.use(cookieParser());
+
   app.use(express.json());
   app.use(
     cors({
@@ -27,6 +31,7 @@ async function start() {
       credentials: true,
     })
   );
+  // app.use(corsHeaders());
   app.use(auth());
 
   app.use("/data/catalog", wineController);
