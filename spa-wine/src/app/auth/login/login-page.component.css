@@ -4,9 +4,6 @@
 }
 
 .loginSection {
-    background: url(https://source.unsplash.com/TV2gg2kZD1o/1600x800);
-    background-repeat: no-repeat;
-    background-position: 40% 60%;
     margin: auto;
     width: 720px;
     height: 370px auto;
@@ -18,24 +15,10 @@
     box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
 }
 
-.signupSection {
-    background: url(https://source.unsplash.com/TV2gg2kZD1o/1600x800);
-    background-repeat: no-repeat;
-    background-position: 40% 60%;
-    margin: auto;
-    width: 740px;
-    height: 590px auto;
-    margin-top: 2em;
-    left: 35%;
-    text-align: center;
-    display: flex;
-    color: white;
-    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
-}
 
 .info {
     width: 250px;
-    background: rgba(20, 20, 20, .8);
+    background: rgba(20, 20, 20, .95);
     padding: 55px 5px;
     border-right: 5px solid rgba(30, 30, 30, .8);
 }
@@ -54,22 +37,11 @@
 .loginForm {
     width: 580px;
     padding: 30px 0;
-    background: rgba(72, 39, 13, 0.8);
+    background: rgba(72, 39, 13, 0.95);
     transition: .2s;
 }
 
-.signupForm {
-    width: 540px;
-    padding: 30px 0;
-    background: rgba(20, 40, 40, .8);
-    transition: .2s;
-}
 
-.signupForm>h2 {
-    font-weight: 350;
-    font-size: 27px;
-    margin-bottom: 0.8em;
-}
 
 .loginForm>h2 {
     font-weight: 350;

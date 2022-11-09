@@ -3,17 +3,54 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-
-.signupSection {
+.createSection,
+.editSection {
     margin: auto;
-    width: 740px;
-    height: 590px auto;
-    margin-top: 2em;
+    width: 680px;
+    height: 850px;
+    margin-top: 1rem;
     left: 35%;
     text-align: center;
     display: flex;
     color: white;
     box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+}
+
+textarea {
+    resize: none;
+}
+
+.createForm,
+.editForm {
+    width: 720px;
+    padding: 10px 0;
+    background: rgba(72, 39, 13, 0.95);
+    transition: .2s;
+}
+
+.createForm>h2,
+.eeditForm>h2 {
+    font-weight: 350;
+    font-size: 27px;
+    margin-bottom: 0.8em;
+}
+
+#create-btn,
+#edit-btn {
+    border: 1px solid rgba(10, 180, 180, 1);
+    background: rgba(20, 20, 20, .6);
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+    padding: 10px 43px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+#create-btn:hover,
+#edit-btn:hover {
+    background: rgba(20, 20, 20, .8);
+    padding: 10px 80px;
 }
 
 .info {
@@ -34,27 +71,8 @@
     font-size: 18px;
 }
 
-.loginForm {
-    width: 580px;
-    padding: 30px 0;
-    background: rgba(20, 40, 40, .8);
-    transition: .2s;
-}
 
-.signupForm {
-    width: 540px;
-    padding: 30px 0;
-    background: rgba(72, 39, 13, 0.95);
-    transition: .2s;
-}
-
-.signupForm>h2 {
-    font-weight: 350;
-    font-size: 27px;
-    margin-bottom: 0.8em;
-}
-
-.inputFields {
+.inputFields, #type {
     margin: 18px 0;
     font-size: 19px;
     padding: 10px;
@@ -77,24 +95,6 @@ input.ng-invalid.ng-touched {
     padding: 0;
 }
 
-#join-btn,
-#login-btn {
-    border: 1px solid rgba(10, 180, 180, 1);
-    background: rgba(20, 20, 20, .6);
-    font-size: 18px;
-    color: white;
-    margin-top: 20px;
-    padding: 10px 43px;
-    cursor: pointer;
-    transition: .4s;
-}
-
-#join-btn:hover,
-#login-btn:hover {
-    background: rgba(20, 20, 20, .8);
-    padding: 10px 80px;
-}
-
 label {
     display: block;
     width: 100%;
@@ -113,7 +113,3 @@ label {
 label:nth-of-type(2) {
     margin-top: 3em;
 }
-
-
-
-

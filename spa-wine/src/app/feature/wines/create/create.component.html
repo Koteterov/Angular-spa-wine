@@ -1,0 +1,47 @@
+<section id="create-page">
+    <div class="createSection">
+        <div class="info">
+            <h2>Create your post, share your wine preference.</h2>
+        </div>
+
+        <form class="createForm">
+            <h2>Create Post</h2>
+            <ul class="noBullet">
+                <li>
+                    <label for="name">Name:</label>
+                    <input type="text" class="inputFields" id="name" placeholder="Ribeaupierre..." name="name" />
+                </li>
+                <li>
+                    <label for="type">Type: Please select from the list!</label>
+                    <select id="type" name="type">
+                        <option value="Red">Red</option>
+                        <option value="White">White</option>
+                        <option value="Rose">Rose</option>
+                        <option value="Sparkling">Sparkling</option>
+                        <option value="None" selected>...</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="origin">Origin:</label>
+                    <input type="text" class="inputFields" id="origin" placeholder="France" name="origin" />
+                </li>
+                <li>
+                    <label for="price">Price in EUR:</label>
+                    <input type="number" class="inputFields" id="price" placeholder="...EUR" name="price" min="0"/>
+                </li>
+                <li>
+                    <label for="image">Wine image:</label>
+                    <input type="text" class="inputFields" id="image" placeholder="http:/..." name="image" />
+                </li>
+                <li>
+                    <label for="description">Your wine description:</label>
+                    <textarea id="description" class="inputFields" name="" placeholder="Primary aromas are..."></textarea>
+                </li>
+                <li id="center-btn">
+                    <button id="create-btn">Create</button>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+</section>
