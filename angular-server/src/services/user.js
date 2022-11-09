@@ -46,7 +46,6 @@ async function login(email, password) {
   if (!match) {
     throw new Error("Incorrect email or password");
   }
-  // .......
 
   return createSession(user);
 }

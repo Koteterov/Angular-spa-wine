@@ -2,7 +2,6 @@ const { validateToken } = require("../services/user");
 const { SESSION_NAME } = require("../config/constants");
 
 module.exports = () => (req, res, next) => {
-  // const token = req.headers['x-authorization'];
   const token = req.cookies[SESSION_NAME] || "";
 
 

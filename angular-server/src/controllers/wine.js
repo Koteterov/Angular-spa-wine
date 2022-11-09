@@ -16,13 +16,15 @@ router.get('/', async (req, res) => {
 
 router.post('/', isAuth(), async (req, res) => {
     const item = {
-        make: req.body.make,
+        name: req.body.name,
         type: req.body.type,
-        description: req.body.description,
+        origin: req.body.origin,
         price: req.body.price,
-        image: req.body.img,
-        _ownerId: req.user._id
+        image: req.body.image,
+        description: req.body.description,
+        _ownerId: req.user._id,
     };
+
 
     try {
         const result = await api.create(item);
