@@ -22,6 +22,7 @@ export class CreateComponent implements OnInit {
 
     this.wineService.create$(this.creatForm.value).subscribe({
       next: (wine) => {
+        this.router.navigate(['home'])
         console.log(wine);
       },
       error: (err) => {

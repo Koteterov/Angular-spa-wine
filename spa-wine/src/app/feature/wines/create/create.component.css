@@ -7,7 +7,6 @@
 .editSection {
     margin: auto;
     width: 680px;
-    height: 850px;
     margin-top: 1rem;
     left: 35%;
     text-align: center;
@@ -86,7 +85,7 @@ textarea {
     outline: none;
 }
 
-input.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched, #type.ng-invalid.ng-touched  {
     border: 2px solid #A94442;
 }
 
