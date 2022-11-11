@@ -13,10 +13,6 @@ export class UserService {
   currentUser$ = this._currentUser.asObservable();
   isLoggedIn$ = this.currentUser$.pipe(map((user) => !!user));
 
-  // get isLogged(): boolean {
-  //   return localStorage.hasOwnProperty("userId");
-  // }
-
   constructor(private http: HttpClient) {}
 
   register$(data: {
@@ -25,40 +21,22 @@ export class UserService {
     email: string;
     password: string;
   }): Observable<IUser> {
-    return this.http
-      .post<IUser>(`${environment.URL}/users/register`, data, {
-        withCredentials: true,
-      })
-      .pipe(
-        tap((user) => {
-          // localStorage.setItem('email', user.email);
-          // localStorage.setItem('authToken', user['accessToken']);
-          // localStorage.setItem('userId', user['_id']);
-        })
-      );
+    return this.http.post<IUser>(`${environment.URL}/users/register`, data, {
+      withCredentials: true,
+    });
   }
 
   login$(data: { email: string; password: string }): Observable<IUser> {
-    return this.http
-      .post<IUser>(`${environment.URL}/users/login`, data, {
-        withCredentials: true,
-      })
-      .pipe(
-        tap((user) => {
-          // localStorage.setItem('email', user.email);
-          // localStorage.setItem('authToken', user['accessToken']);
-          // localStorage.setItem('userId', user['_id']);
-        })
-      );
+    return this.http.post<IUser>(`${environment.URL}/users/login`, data, {
+      withCredentials: true,
+    });
   }
 
   logout$() {
-    return this.http.post<IUser>(`${environment.URL}/users/logout`, {}, { withCredentials: true }).pipe(
-      tap(() => {
-        // localStorage.removeItem('email');
-        // localStorage.removeItem('authToken');
-        // localStorage.removeItem('userId');
-      })
+    return this.http.post<IUser>(
+      `${environment.URL}/users/logout`,
+      {},
+      { withCredentials: true }
     );
   }
 
@@ -68,7 +46,6 @@ export class UserService {
       .pipe(
         tap((currentProfile) => {
           this.handleLogin(currentProfile);
-
         }),
         catchError((err) => {
           return EMPTY;
@@ -85,6 +62,8 @@ export class UserService {
   }
 
   getProfile$(): Observable<IUser> {
-    return this.http.get<IUser>(`${environment.URL}/users/profile`, { withCredentials: true })
+    return this.http.get<IUser>(`${environment.URL}/users/profile`, {
+      withCredentials: true,
+    });
   }
 }

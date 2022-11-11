@@ -26,7 +26,7 @@ export class CreateComponent implements OnInit {
         console.log(wine);
       },
       error: (err) => {
-        this.errorMessage = err.error.message
+        this.errorMessage = err.error?.message
         console.log(this.errorMessage);
       }
     })

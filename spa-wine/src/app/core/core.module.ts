@@ -34,6 +34,7 @@ import { AuthInterceptor } from './auth.interceptor';
       multi: true,
       useClass: AuthInterceptor,
     },
+    
   ],
 })
 export class CoreModule {}

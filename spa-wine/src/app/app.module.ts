@@ -1,10 +1,11 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { ErrorHandlerInterceptor } from './core/error-handler.interceptor';
 import { UserService } from './core/services/user.service';
 import { WinesModule } from './feature/wines/wines.module';
 
@@ -16,7 +17,7 @@ import { WinesModule } from './feature/wines/wines.module';
     HttpClientModule,
     CoreModule,
     AuthModule,
-    WinesModule
+    WinesModule,
   ],
   providers: [
     {
@@ -26,6 +27,11 @@ import { WinesModule } from './feature/wines/wines.module';
       },
       deps: [UserService],
       multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: ErrorHandlerInterceptor,
     },
   ],
   bootstrap: [AppComponent],
