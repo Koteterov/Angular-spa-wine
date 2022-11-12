@@ -87,6 +87,7 @@ input.ng-invalid.ng-touched {
     padding: 10px 43px;
     cursor: pointer;
     transition: .4s;
+    border-radius: 12px;
 }
 
 #join-btn:hover,

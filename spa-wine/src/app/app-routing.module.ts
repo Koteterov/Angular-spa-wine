@@ -5,7 +5,10 @@ import { RegisterPageComponent } from './auth/register/register-page.component';
 import { HomePageComponent } from './feature/pages/home-page/home-page.component';
 import { NotFoundPageComponent } from './feature/pages/not-found-page/not-found-page.component';
 import { ProfileComponent } from './feature/pages/profile/profile.component';
+import { AllWinesComponent } from './feature/wines/all-wines/all-wines.component';
 import { CreateComponent } from './feature/wines/create/create.component';
+import { DetailsComponent } from './feature/wines/details/details.component';
+import { EditComponent } from './feature/wines/edit/edit.component';
 
 const routes: Routes = [
   {
@@ -35,6 +38,19 @@ const routes: Routes = [
   {
     path: 'create',
     component: CreateComponent
+  },
+  {
+    path: 'details',
+    component: DetailsComponent
+  },
+  {
+    path: 'edit',
+    component: EditComponent
+  },
+
+  {
+    path: 'all',
+    component: AllWinesComponent
   },
 
   {

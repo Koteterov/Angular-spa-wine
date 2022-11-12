@@ -4,12 +4,18 @@ import { CreateComponent } from './create/create.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from 'src/app/core/core.module';
+import { AllWinesComponent } from './all-wines/all-wines.component';
+import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
 
 
 
 @NgModule({
   declarations: [
-    CreateComponent
+    CreateComponent,
+    AllWinesComponent,
+    DetailsComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
