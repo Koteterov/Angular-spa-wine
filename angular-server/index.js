@@ -10,7 +10,7 @@ const usersController = require("./src/controllers/users");
 
 async function start() {
   try {
-    const db = await mongoose.connect("mongodb://localhost:27017/angularWine");
+    const db = await mongoose.connect("mongodb://127.0.0.1:27017/angularWine", { useNewUrlParser: true, useUnifiedTopology: true });
 
     console.log("DB Ready");
   } catch (err) {
@@ -37,5 +37,6 @@ async function start() {
 
   app.listen(3030, () => console.log("REST Service started on port 3030"));
 }
+
 
 start();
