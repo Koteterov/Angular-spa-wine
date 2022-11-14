@@ -19,9 +19,10 @@ async function getById(id) {
 async function updateById(existing, item) {
   existing.name = item.name;
   existing.type = item.type;
-  existing.description = item.description;
+  existing.origin = item.origin;
+  existing.price = item.price;
   existing.image = item.image;
-  // TODO........
+  existing.description = item.description;
   await existing.save();
 
   return existing;

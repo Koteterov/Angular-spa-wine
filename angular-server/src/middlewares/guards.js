@@ -13,6 +13,7 @@ module.exports = {
             next();
         } else {
             res.status(403).json({ message: 'You cannot modify this record' });
+            
         }
     }
 };
