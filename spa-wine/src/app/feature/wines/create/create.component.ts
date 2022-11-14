@@ -9,7 +9,7 @@ import { WineService } from 'src/app/core/services/wine.service';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
-  @ViewChild('creatForm') creatForm!: NgForm;
+  @ViewChild('createForm') createForm!: NgForm;
 
   errorMessage: string = '';
 
@@ -20,7 +20,7 @@ export class CreateComponent implements OnInit {
   handleCreate(): void {
     this.errorMessage = '';
 
-    this.wineService.create$(this.creatForm.value).subscribe({
+    this.wineService.create$(this.createForm.value).subscribe({
       next: (wine) => {
         this.router.navigate(['home'])
         console.log(wine);

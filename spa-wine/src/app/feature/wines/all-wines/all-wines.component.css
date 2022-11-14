@@ -15,9 +15,9 @@ html {
   .container .wine {
     background: rgba(72, 39, 13, 0.95);
     border-radius: 15px;
-    margin: 30px;
-    width: 25rem;
-    height: 36rem;
+    margin: 20px;
+    width: 19rem;
+    height: 30rem;
     position: relative;
     color: rgb(19, 66, 27);
     box-shadow: 0 0 10px #00000070;
@@ -50,7 +50,7 @@ html {
   
   .container img {
     width: 100%;
-    height:100%;
+    height:340px;
     border-radius: 15px;
   }
   

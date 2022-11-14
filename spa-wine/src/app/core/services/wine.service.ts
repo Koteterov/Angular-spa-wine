@@ -4,25 +4,26 @@ import { Observable } from 'rxjs';
 import { IWine } from 'src/app/shared/interfaces/wine';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WineService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   create$(data: {
-    name: string, 
-    type: string, 
-    origin: string, 
-    price: string, 
-    image: string, 
-    description: string
-
+    name: string;
+    type: string;
+    origin: string;
+    price: string;
+    image: string;
+    description: string;
   }): Observable<IWine> {
-    return this.http.post<IWine>(`${environment.URL}/data/catalog`, data, { withCredentials: true})
+    return this.http.post<IWine>(`${environment.URL}/data/catalog`, data, {
+      withCredentials: true,
+    });
   }
 
-
+  getAll$(): Observable<IWine[]> {
+    return this.http.get<IWine[]>(`${environment.URL}/data/catalog`);
+  }
 }

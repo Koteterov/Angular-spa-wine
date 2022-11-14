@@ -4,7 +4,7 @@
             <h2>Create your post, share your wine preference.</h2>
         </div>
 
-        <form #creatForm="ngForm" (ngSubmit)="handleCreate()" class="createForm">
+        <form #createForm="ngForm" (ngSubmit)="handleCreate()" class="createForm">
             <h2>Create Post</h2>
             <ul class="noBullet">
                 <li>
@@ -80,7 +80,7 @@
 
                 </li>
                 <li id="center-btn">
-                    <button id="create-btn">Create</button>
+                    <button [disabled]="createForm.invalid" id="create-btn">Create</button>
                 </li>
             </ul>
         </form>
