@@ -19,7 +19,7 @@
 }
 
 .card_datails {
-    width: 96%;
+    width: 105%;
     padding: 50px;
     margin-top: -25px;
 }
@@ -31,7 +31,6 @@
 
 .card_right img {
     height: 100%;
-    width: 100%;
     border-radius: 2px;
 }
 
@@ -54,17 +53,15 @@
 .card-date,
 .card-location {
     color: rgb(223, 210, 210);
-    padding: 8px;
+    padding: 22px;
     font-weight: bold;
     border-radius: 15px;
 }
 
 .PG {
-    /*background: #92FE9D;*/
     background: rgba(116, 153, 226, 0.89);
     -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-    /* -webkit-transition: 300ms ease-in-out; */
 }
 
 .disc {
@@ -75,7 +72,7 @@
 
 .social-btn {
     margin-left: -10px;
-    margin-top: 2em;
+    margin-top: 4em;
 }
 
 .social-btn>.edit-btn,
@@ -111,7 +108,7 @@
 }
 
 .thanks-for-vote {
-    width: 185px;
+    width: 200px;
     background-color: rgba(116, 153, 226, 0.89);
 }
 
@@ -235,8 +232,7 @@ article {
 }
 
 p {
-    flex: 1;
-    line-height: 1.4;
+    line-height: 1.8;
 }
 
 span {
@@ -250,7 +246,6 @@ span {
 
 .thumb {
     max-height: 350px;
-    /*   padding-bottom: 40%;*/
     width: 100%;
     background-size: cover;
     background-position: center center;
@@ -266,8 +261,7 @@ span {
     height: 200px auto;
     margin: 50px auto;
     display: flex;
-    max-width: 950px;
-    background: rgba(72, 39, 13, 0.95);
+    max-width: 40%;
 }
 
 .card_vote {

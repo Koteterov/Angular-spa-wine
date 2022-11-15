@@ -86,7 +86,7 @@ textarea {
     outline: none;
 }
 
-input.ng-invalid.ng-touched, #type.ng-invalid.ng-touched  {
+input.ng-invalid.ng-touched, #type.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched  {
     border: 2px solid #A94442;
 }
 

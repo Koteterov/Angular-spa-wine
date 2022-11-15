@@ -10,14 +10,7 @@ import { environment } from 'src/environments/environment';
 export class WineService {
   constructor(private http: HttpClient) {}
 
-  create$(data: {
-    name: string;
-    type: string;
-    origin: string;
-    price: string;
-    image: string;
-    description: string;
-  }): Observable<IWine> {
+  create$(data: IWine): Observable<IWine> {
     return this.http.post<IWine>(`${environment.URL}/data/catalog`, data, {
       withCredentials: true,
     });
@@ -25,5 +18,15 @@ export class WineService {
 
   getAll$(): Observable<IWine[]> {
     return this.http.get<IWine[]>(`${environment.URL}/data/catalog`);
+  }
+
+  getOne$(wineId: string): Observable<IWine> {
+    return this.http.get<IWine>(`${environment.URL}/data/catalog/${wineId}`);
+  }
+
+  edit$(wineId:string, data: IWine): Observable<IWine> {
+    return this.http.put<IWine>(`${environment.URL}/data/catalog/${wineId}`, data, {
+      withCredentials: true,
+    });
   }
 }

@@ -40,11 +40,11 @@ const routes: Routes = [
     component: CreateComponent
   },
   {
-    path: 'details',
+    path: 'details/:wineId',
     component: DetailsComponent
   },
   {
-    path: 'edit',
+    path: 'edit/:wineId',
     component: EditComponent
   },
 

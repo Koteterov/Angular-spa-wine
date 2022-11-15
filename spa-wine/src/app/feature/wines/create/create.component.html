@@ -35,36 +35,38 @@
                 <li>
                     <label for="origin">Origin:</label>
                     <input #origin="ngModel" ngModel type="text" class="inputFields" id="origin" placeholder="France"
-                        name="origin" required minlength="3"/>
+                        name="origin" required minlength="3" />
 
-                        <ng-container *ngIf="origin.touched && origin.invalid">
-                            <app-error *ngIf="origin.errors?.['required']"> Origin is required! </app-error>
-                            <app-error *ngIf="origin.errors?.['minlength']"> Origin must be at leat 3 letters long!
-                            </app-error>
-                        </ng-container>
-    
+                    <ng-container *ngIf="origin.touched && origin.invalid">
+                        <app-error *ngIf="origin.errors?.['required']"> Origin is required! </app-error>
+                        <app-error *ngIf="origin.errors?.['minlength']"> Origin must be at leat 3 letters long!
+                        </app-error>
+                    </ng-container>
+
                 </li>
                 <li>
                     <label for="price">Price in EUR:</label>
                     <input #price="ngModel" ngModel type="number" class="inputFields" id="price" placeholder="...EUR"
-                        name="price" min="0" required/>
+                        name="price" min="0" required />
 
-                        <ng-container *ngIf="price.touched && origin.invalid">
-                            <app-error *ngIf="price.errors?.['required']"> Price is required! </app-error>
-                        </ng-container>
+                    <ng-container *ngIf="price.touched && price.invalid">
+                        <app-error *ngIf="price.errors?.['required']"> Price is required! </app-error>
+                        <app-error *ngIf="price.errors?.['min']"> Price must be a positive number! </app-error>
+
+                    </ng-container>
 
 
                 </li>
                 <li>
                     <label for="image">Wine image:</label>
                     <input #image="ngModel" ngModel type="text" class="inputFields" id="image" placeholder="http:/..."
-                        name="image" required minlength="3"/>
+                        name="image" required minlength="3" />
 
-                        <ng-container *ngIf="image.touched && image.invalid">
-                            <app-error *ngIf="image.errors?.['required']"> Image is required! </app-error>
-                            <app-error *ngIf="image.errors?.['minlength']"> The field must be must be a valid url!
-                            </app-error>
-                        </ng-container>
+                    <ng-container *ngIf="image.touched && image.invalid">
+                        <app-error *ngIf="image.errors?.['required']"> Image is required! </app-error>
+                        <app-error *ngIf="image.errors?.['minlength']"> The field must be must be a valid url!
+                        </app-error>
+                    </ng-container>
 
                 </li>
                 <li>
@@ -72,11 +74,12 @@
                     <textarea #description="ngModel" ngModel id="description" class="inputFields" name="description"
                         placeholder="Primary aromas are..." required minlength="5"></textarea>
 
-                        <ng-container *ngIf="description.touched && description.invalid">
-                            <app-error *ngIf="description.errors?.['required']"> Description is required! </app-error>
-                            <app-error *ngIf="description.errors?.['minlength']"> Description must be at leat 5 letters long!
-                            </app-error>
-                        </ng-container>
+                    <ng-container *ngIf="description.touched && description.invalid">
+                        <app-error *ngIf="description.errors?.['required']"> Description is required! </app-error>
+                        <app-error *ngIf="description.errors?.['minlength']"> Description must be at leat 5 letters
+                            long!
+                        </app-error>
+                    </ng-container>
 
                 </li>
                 <li id="center-btn">
