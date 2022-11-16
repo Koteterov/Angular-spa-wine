@@ -9,7 +9,7 @@ import { AllWinesComponent } from './feature/wines/all-wines/all-wines.component
 import { CreateComponent } from './feature/wines/create/create.component';
 import { DetailsComponent } from './feature/wines/details/details.component';
 import { EditComponent } from './feature/wines/edit/edit.component';
-import { WineDetailsResolver } from './feature/wines/quards/wine-details.resolver';
+import { WineDetailsResolver } from './feature/wines/guards/wine-details.resolver';
 
 const routes: Routes = [
   {

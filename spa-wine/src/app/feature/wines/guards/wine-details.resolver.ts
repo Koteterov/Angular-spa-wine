@@ -15,7 +15,6 @@ export class WineDetailsResolver implements Resolve<IWine> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    console.log('r and s', route, state);
     return this.wineService.getOne$(route.params['wineId']);
   }
 }
