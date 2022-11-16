@@ -9,12 +9,15 @@ import { IWine } from 'src/app/shared/interfaces/wine';
 })
 export class AllWinesComponent implements OnInit {
   wineList: IWine[] = [];
+  showSpinner: boolean = false;
 
   constructor(private wineService: WineService) {}
 
   ngOnInit(): void {
+    this.showSpinner = true;
     this.wineService.getAll$().subscribe((wines) => {
       this.wineList = wines;
+      this.showSpinner = false;
     });
   }
 }

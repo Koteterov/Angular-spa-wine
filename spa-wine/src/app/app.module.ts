@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { ErrorHandlerInterceptor } from './core/error-handler.interceptor';
 import { UserService } from './core/services/user.service';
 import { WinesModule } from './feature/wines/wines.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PagesModule } from './feature/pages/pages.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,9 +17,11 @@ import { WinesModule } from './feature/wines/wines.module';
     BrowserModule,
     HttpClientModule,
     CoreModule,
+    PagesModule,
     AuthModule,
     WinesModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {

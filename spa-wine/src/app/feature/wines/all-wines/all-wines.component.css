@@ -87,5 +87,8 @@ html {
     border-radius: 10px;
   }
 
-
+  #spinner {
+    display: inline-block;
+    margin: 30px;
+  }
 

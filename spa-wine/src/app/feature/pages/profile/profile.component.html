@@ -1,11 +1,11 @@
 <section id="user">
-    <div class="user-info">
+    <div class="user-info" *ngIf="!!currentUser">
         <div class="user-logo">
             <img src="../../../../assets/img/user-logo.webp">
             
             
         </div>
-        <h1 class="user-email">{{currentUser?.firstName}} {{currentUser?.lastName}} - {{currentUser?.email}}</h1>
+        <h1 class="user-email">{{currentUser.firstName}} {{currentUser.lastName}} - {{currentUser.email}}</h1>
         <h2 class="created-blogs-count">Total Created Wines: 1</h2>
         <h2 class="followed-blogs-count">Total Liked Wines: 2</h2>
     </div>

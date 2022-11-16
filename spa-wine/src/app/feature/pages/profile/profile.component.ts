@@ -9,7 +9,7 @@ import { IUser } from 'src/app/shared/interfaces/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  currentUser?: IUser;
+  currentUser!: IUser;
 
   constructor(private userService: UserService, private router: Router) { }
 

@@ -8,6 +8,7 @@ import { AllWinesComponent } from './all-wines/all-wines.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { WinesRoutingModule } from './wines-routing.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 
 
@@ -23,7 +24,8 @@ import { WinesRoutingModule } from './wines-routing.module';
     RouterModule,
     FormsModule,
     CoreModule,
-    WinesRoutingModule
+    WinesRoutingModule,
+    MatProgressSpinnerModule
   ],
   
 })
