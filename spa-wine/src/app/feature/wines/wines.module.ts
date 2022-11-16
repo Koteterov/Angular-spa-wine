@@ -22,6 +22,7 @@ import { EditComponent } from './edit/edit.component';
     RouterModule,
     FormsModule,
     CoreModule
-  ]
+  ],
+  
 })
 export class WinesModule { }

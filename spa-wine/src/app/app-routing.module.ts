@@ -9,54 +9,50 @@ import { AllWinesComponent } from './feature/wines/all-wines/all-wines.component
 import { CreateComponent } from './feature/wines/create/create.component';
 import { DetailsComponent } from './feature/wines/details/details.component';
 import { EditComponent } from './feature/wines/edit/edit.component';
+import { WineDetailsResolver } from './feature/wines/quards/wine-details.resolver';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home'
+    redirectTo: 'home',
   },
 
   {
     path: 'home',
-    component: HomePageComponent
+    component: HomePageComponent,
+    title: 'Home',
   },
 
   {
-    path: 'login',
-    component: LoginPageComponent
-  },
-  {
-    path: 'register',
-    component: RegisterPageComponent
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
+    path: 'user',
+    children: [
+      { path: 'login', component: LoginPageComponent, title: 'Login' },
+      { path: 'register', component: RegisterPageComponent, title: 'Register' },
+      { path: 'profile', component: ProfileComponent, title: 'Profile' },
+    ],
   },
 
   {
-    path: 'create',
-    component: CreateComponent
-  },
-  {
-    path: 'details/:wineId',
-    component: DetailsComponent
-  },
-  {
-    path: 'edit/:wineId',
-    component: EditComponent
-  },
-
-  {
-    path: 'all',
-    component: AllWinesComponent
+    path: 'wine',
+    children: [
+      { path: 'create', component: CreateComponent, title: 'Create' },
+      { path: 'all', component: AllWinesComponent, title: 'All Wines' },
+      { path: 'edit/:wineId', component: EditComponent, title: 'Edit' },
+      {
+        path: 'details/:wineId',
+        resolve: { wine: WineDetailsResolver },
+        component: DetailsComponent,
+        title: 'Details',
+      },
+    ],
   },
 
   {
     path: '**',
-    component: NotFoundPageComponent
-  }
+    component: NotFoundPageComponent,
+    title: 'Not Found',
+  },
 ];
 
 @NgModule({
