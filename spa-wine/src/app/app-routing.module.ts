@@ -24,29 +24,29 @@ const routes: Routes = [
     title: 'Home',
   },
 
-  {
-    path: 'user',
-    children: [
-      { path: 'login', component: LoginPageComponent, title: 'Login' },
-      { path: 'register', component: RegisterPageComponent, title: 'Register' },
-      { path: 'profile', component: ProfileComponent, title: 'Profile' },
-    ],
-  },
+  // {
+  //   path: 'user',
+  //   children: [
+  //     { path: 'login', component: LoginPageComponent, title: 'Login' },
+  //     { path: 'register', component: RegisterPageComponent, title: 'Register' },
+  //     { path: 'profile', component: ProfileComponent, title: 'Profile' },
+  //   ],
+  // },
 
-  {
-    path: 'wine',
-    children: [
-      { path: 'create', component: CreateComponent, title: 'Create' },
-      { path: 'all', component: AllWinesComponent, title: 'All Wines' },
-      { path: 'edit/:wineId', component: EditComponent, title: 'Edit' },
-      {
-        path: 'details/:wineId',
-        resolve: { wine: WineDetailsResolver },
-        component: DetailsComponent,
-        title: 'Details',
-      },
-    ],
-  },
+  // {
+  //   path: 'wine',
+  //   children: [
+  //     { path: 'create', component: CreateComponent, title: 'Create' },
+  //     { path: 'all', component: AllWinesComponent, title: 'All Wines' },
+  //     { path: 'edit/:wineId', component: EditComponent, title: 'Edit' },
+  //     {
+  //       path: 'details/:wineId',
+  //       resolve: { wine: WineDetailsResolver },
+  //       component: DetailsComponent,
+  //       title: 'Details',
+  //     },
+  //   ],
+  // },
 
   {
     path: '**',

@@ -13,11 +13,11 @@ import { WinesModule } from './feature/wines/wines.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     CoreModule,
     AuthModule,
     WinesModule,
+    AppRoutingModule,
   ],
   providers: [
     {
