@@ -34,8 +34,8 @@ export class WineService {
     );
   }
 
-  getMy$(userId: string): Observable<IWine> {
-    return this.http.get<IWine>(
+  getMy$(userId: string): Observable<IWine[]> {
+    return this.http.get<IWine[]>(
       `${environment.URL}/data/catalog/my?userId=${userId}`
     );
     // http://localhost:3030/data/catalog/my?userId=636d174a832796318d3c6dd0

@@ -4,10 +4,12 @@ import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { WineDetailsResolver } from './guards/wine-details.resolver';
+import { MyWinesComponent } from './my-wines/my-wines.component';
 
 const routes: Routes = [
   { path: 'wine/create', component: CreateComponent, title: 'Create' },
   { path: 'wine/all', component: AllWinesComponent, title: 'All Wines' },
+  { path: 'wine/my-wines', component: MyWinesComponent, title: 'My Wines' },
   { path: 'wine/edit/:wineId', component: EditComponent, title: 'Edit' },
   {
     path: 'wine/details/:wineId',

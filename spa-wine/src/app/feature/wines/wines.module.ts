@@ -8,7 +8,8 @@ import { AllWinesComponent } from './all-wines/all-wines.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { WinesRoutingModule } from './wines-routing.module';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MyWinesComponent } from './my-wines/my-wines.component'
 
 
 
@@ -17,7 +18,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     CreateComponent,
     AllWinesComponent,
     DetailsComponent,
-    EditComponent
+    EditComponent,
+    MyWinesComponent
   ],
   imports: [
     CommonModule,
