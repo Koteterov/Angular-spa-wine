@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { WineService } from 'src/app/core/services/wine.service';
 import { IWine } from 'src/app/shared/interfaces/wine';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-all-wines',
@@ -10,6 +11,9 @@ import { IWine } from 'src/app/shared/interfaces/wine';
 export class AllWinesComponent implements OnInit {
   wineList: IWine[] = [];
   showSpinner: boolean = false;
+  notFound: boolean = false;
+
+  @ViewChild('searchForm') searchForm!: NgForm;
 
   constructor(private wineService: WineService) {}
 
@@ -18,6 +22,16 @@ export class AllWinesComponent implements OnInit {
     this.wineService.getAll$().subscribe((wines) => {
       this.wineList = wines;
       this.showSpinner = false;
+    });
+  }
+  handleSearch() {
+    const searchString = this.searchForm.value.search;
+    this.wineService.findWines$(searchString).subscribe((wines) => {
+      this.wineList = wines;
+      this.notFound = false;
+      if (wines.length == 0) {
+        this.notFound = true;
+      }
     });
   }
 }

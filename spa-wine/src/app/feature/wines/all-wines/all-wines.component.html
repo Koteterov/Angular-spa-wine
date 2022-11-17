@@ -8,9 +8,19 @@
 
     <ng-template #winePosts>
         <h1>Wine Posts</h1>
+
+        <div>
+            <div>
+                <label for="site-search">Search for wine:</label>
+            </div>
+            <form #searchForm="ngForm" (ngSubmit)="handleSearch()">
+                <input #search="ngModel" ngModel type="search" id="site-search" name="search">
+                <button id="btn">Search</button>
+            </form>
+        </div>
+
         <div class="container">
-            <ng-container *ngIf="wineList.length > 0; else noWines">
-    
+            <ng-container *ngIf="wineList.length > 0">
                 <div class="wine" *ngFor="let wine of wineList">
                     <div class="info-container">
                         <img src={{wine.image}}>
@@ -24,10 +34,19 @@
                     </div>
                 </div>
             </ng-container>
-    
-            <ng-template #noWines>
+
+            <ng-container *ngIf="wineList.length == 0 && !notFound">
                 <h2 class="no-record">There are no wines posted yet...</h2>
-            </ng-template>
+            </ng-container>
+
+            <ng-container *ngIf="notFound">
+                <h2 class="no-record">No matches found</h2>
+        
+            </ng-container>
+        
+
         </div>
     </ng-template>
+
+
 </section>
