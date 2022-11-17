@@ -4,7 +4,6 @@ const itemSchema = new Schema({
 
   name: {
     type: String,
-    required: [true, "Name is required"],
     minlength: [3, 'Name min length is 3 characters']
   },
 

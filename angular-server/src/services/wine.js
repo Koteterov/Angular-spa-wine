@@ -1,12 +1,18 @@
 const Item = require("../models/Item");
 
-async function getAll(query) {
-  if (query) {
-    const userId = query.split("=")[1].slice(1, -1);
-    return Item.find({ _ownerId: userId });
+async function getAll(search) {
+  const query = {}
+  if (search) {
+    query.name = new RegExp(search, 'i')
   }
-  return Item.find({});
+  return Item.find(query);
 }
+
+async function getMy(id) {
+  return Item.find({ _ownerId: id });
+}
+
+
 
 async function create(item) {
   return Item.create(item);
@@ -34,6 +40,7 @@ async function deleteById(id) {
 
 module.exports = {
   getAll,
+  getMy,
   create,
   getById,
   updateById,
