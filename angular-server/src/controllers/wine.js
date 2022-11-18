@@ -61,7 +61,7 @@ router.put('/:id', preload(api), isOwner(), async (req, res) => {
     }
 });
 
-router.delete('/:id', isAuth(), isOwner(), async (req, res) => {
+router.delete('/:id', preload(api), isAuth(), isOwner(), async (req, res) => {
     const id = req.params.id;
 
     try {
