@@ -38,12 +38,20 @@ export class WineService {
     return this.http.get<IWine[]>(
       `${environment.URL}/data/catalog/my?userId=${userId}`
     );
-    // http://localhost:3030/data/catalog/my?userId=636d174a832796318d3c6dd0
   }
 
   findWines$(search: string = ''): Observable<IWine[]> {
     return this.http.get<IWine[]>(
       `${environment.URL}/data/catalog?name=${search}`
+    );
+  }
+
+  deleteOne$(wineId: string): Observable<IWine> {
+    return this.http.delete<IWine>(
+      `${environment.URL}/data/catalog/${wineId}`,
+      {
+        withCredentials: true,
+      }
     );
   }
 

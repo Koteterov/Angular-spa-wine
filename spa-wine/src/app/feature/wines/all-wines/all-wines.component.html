@@ -13,7 +13,7 @@
             <div>
                 <label for="site-search">Search for wine:</label>
             </div>
-            <form #searchForm="ngForm" (ngSubmit)="handleSearch()">
+            <form #searchForm="ngForm" (input)="handleSearch()" id="form">
                 <input #search="ngModel" ngModel type="search" id="site-search" name="search">
                 <button id="btn">Search</button>
             </form>

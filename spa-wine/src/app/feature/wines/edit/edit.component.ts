@@ -35,7 +35,7 @@ export class EditComponent implements OnInit {
       this.wineService.edit$(wineId, this.editForm.value).subscribe({
         next: () => {
           // this.router.navigate([`details/${wineId}`]);
-          this.router.navigate(['/details', wineId]);
+          this.router.navigate(['/wine/details', wineId]);
         },
         error: (err) => {
           console.log(err.error?.message);
