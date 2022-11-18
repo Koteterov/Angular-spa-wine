@@ -1,9 +1,9 @@
 const Item = require("../models/Item");
 
 async function getAll(search) {
-  const query = {}
+  const query = {};
   if (search) {
-    query.name = new RegExp(search, 'i')
+    query.name = new RegExp(search, "i");
   }
   return Item.find(query);
 }
@@ -11,8 +11,6 @@ async function getAll(search) {
 async function getMy(id) {
   return Item.find({ _ownerId: id });
 }
-
-
 
 async function create(item) {
   return Item.create(item);
@@ -38,6 +36,24 @@ async function deleteById(id) {
   return await Item.findByIdAndDelete(id);
 }
 
+async function like(itemId, userId) {
+  const item = await Item.findById(itemId);
+
+  if (item.likesList.some((x) => x == userId)) {
+    throw new Error("You have already liked this item!");
+  }
+  item.likesList.push(userId);
+  await item.save();
+  return item;
+}
+
+async function unlike(itemId, userId) {
+  return await Item.updateOne(
+    { _id: itemId },
+    { $pull: { likesList: userId } }
+  );
+}
+
 module.exports = {
   getAll,
   getMy,
@@ -45,4 +61,6 @@ module.exports = {
   getById,
   updateById,
   deleteById,
+  like,
+  unlike,
 };
