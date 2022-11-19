@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { WineService } from 'src/app/core/services/wine.service';
 import { IWine } from 'src/app/shared/interfaces/wine';
 import { NgForm, NgModel } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, mergeMap, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-all-wines',
@@ -13,6 +14,8 @@ export class AllWinesComponent implements OnInit {
   showSpinner: boolean = false;
   notFound: boolean = false;
 
+  searchUpdate = new Subject<string>();
+
   @ViewChild('searchForm') searchForm!: NgForm;
 
   constructor(private wineService: WineService) {}
@@ -23,15 +26,33 @@ export class AllWinesComponent implements OnInit {
       this.wineList = wines;
       this.showSpinner = false;
     });
+
+    //--search--
+    this.searchUpdate
+      .pipe(debounceTime(500), distinctUntilChanged())
+      .pipe(
+        mergeMap((value) => {
+          return this.wineService.findWines$(value);
+        })
+      )
+      .subscribe((wines) => {
+        this.wineList = wines;
+        this.notFound = false;
+        if (wines.length == 0) {
+          this.notFound = true;
+        }
+      });
   }
-  handleSearch() {
-    const searchString = this.searchForm.value.search;
-    this.wineService.findWines$(searchString).subscribe((wines) => {
-      this.wineList = wines;
-      this.notFound = false;
-      if (wines.length == 0) {
-        this.notFound = true;
-      }
-    });
-  }
+
+  // //--search (other way...)--
+  // handleSearch() {
+  //   const searchString = this.searchForm.value.search;
+  //   this.wineService.findWines$(searchString).subscribe((wines) => {
+  //     this.wineList = wines;
+  //     this.notFound = false;
+  //     if (wines.length == 0) {
+  //       this.notFound = true;
+  //     }
+  //   });
+  // }
 }

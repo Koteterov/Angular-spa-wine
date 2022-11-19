@@ -11,12 +11,16 @@
 
         <div>
             <div>
-                <label for="site-search">Search for wine:</label>
+                <label for="site-search">Search for wines:</label>
             </div>
-            <form #searchForm="ngForm" (input)="handleSearch()" id="form">
+            <form>
+                <input ngModel type="search" id="site-search" name="search"
+                    (ngModelChange)="this.searchUpdate.next($event)">
+            </form>
+            <!-- <form #searchForm="ngForm" (ngSubmit)="handleSearch()" id="form">
                 <input #search="ngModel" ngModel type="search" id="site-search" name="search">
                 <button id="btn">Search</button>
-            </form>
+            </form> -->
         </div>
 
         <div class="container">
@@ -41,9 +45,9 @@
 
             <ng-container *ngIf="notFound">
                 <h2 class="no-record">No matches found</h2>
-        
+
             </ng-container>
-        
+
 
         </div>
     </ng-template>
