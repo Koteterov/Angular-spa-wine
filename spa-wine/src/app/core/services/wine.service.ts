@@ -54,6 +54,22 @@ export class WineService {
       }
     );
   }
+  likeWine$(wineId: string): Observable<IWine> {
+    return this.http.get<IWine>(
+      `${environment.URL}/data/catalog/like/${wineId}`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+  unlikeWine$(wineId: string): Observable<IWine> {
+    return this.http.get<IWine>(
+      `${environment.URL}/data/catalog/unlike/${wineId}`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
 
   //
   // loadThemeList(searchTerm: string = ''): Observable<ITheme[]> {

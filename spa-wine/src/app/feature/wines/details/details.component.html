@@ -15,23 +15,34 @@
 
                 <p class="disc">WINE DESCRIPTION: {{wine.description}}</p>
 
-                <!-- If there is no registered user, do not display buttons-->
-                <div class="social-btn">
+                <!-- If there is no registered user, no buttons displayed-->
+                <div *ngIf="(user$ | async)" class="social-btn">
+
                     <!-- Only for registered user and author of the post -->
-                    <button [routerLink]="['/wine/edit', wine._id]" class="edit-btn">Edit</button>
-                    <button  class="del-btn" (click)="deleteHandler()">Delete</button>
-                    <!-- logged in users, who have not yet voted-->
-                    <button href="#" class="vote-up">Like +1</button>
-                    <button href="#" class="vote-down">Unlike -1</button>
-                    <!-- logged in user who has already voted-->
-                    <p class="thanks-for-vote">Thanks For Liking</p>
+                    <ng-container *ngIf="isCreator">
+                        <button [routerLink]="['/wine/edit', wine._id]" class="edit-btn">Edit</button>
+                        <button class="del-btn" (click)="deleteHandler()">Delete</button>
+                    </ng-container>
+
+                    <ng-container *ngIf="!isCreator">
+                        <ng-container *ngIf="!hasLiked; else thanks">
+                            <button class="vote-up" (click)="likeHandler()">Like +1</button>
+                        </ng-container>
+
+                        <!-- logged in user who has already liked-->
+                        <ng-template #thanks>
+                            <button class="vote-down" (click)="unlikeHandler()">Unlike -1</button>
+                            <span class="thanks-for-vote">Thanks For Liking</span>
+                        </ng-template>
+
+                    </ng-container>
 
                 </div>
             </div>
         </div>
         <div class="card_right">
             <img src={{wine.image}} alt="image">
-            
+
         </div>
     </div>
 
@@ -44,7 +55,7 @@
                 <h1>Likes</h1>
                 <div class="card_vote">
                     <!-- Show the rating of votes, if there are no votes yet, the number must be 0. -->
-                    <p class="PV">Total likes: 0</p>
+                    <p class="PV">Total likes: {{totalLikes}}</p>
                 </div>
                 <!-- If there are already people who have cast their vote for the post, separate their emails with a comma and a space ", " -->
                 <p class="disc">People who the wine post - alex@gmai.com, petar@gmail.com, petq@gmail.com</p>

@@ -1,5 +1,7 @@
 export interface IWine {
+  likesList: [string];
   _id: string;
+  _ownerId: string;
   name: string;
   type: string;
   origin: string;

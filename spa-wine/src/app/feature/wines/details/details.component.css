@@ -110,6 +110,7 @@
 .thanks-for-vote {
     width: 200px;
     background-color: rgba(116, 153, 226, 0.89);
+    margin-left: 75px;
 }
 
 .get-statistics {
