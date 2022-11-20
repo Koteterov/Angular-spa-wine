@@ -17,7 +17,7 @@ async function create(item) {
 }
 
 async function getById(id) {
-  return Item.findById(id);
+  return Item.findById(id).populate('_ownerId').populate('likesList');
 }
 
 async function updateById(existing, item) {
