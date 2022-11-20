@@ -1,7 +1,9 @@
+import { IUser } from "./user";
+
 export interface IWine {
-  likesList: [string];
+  likesList: IUser[];
   _id: string;
-  _ownerId: string;
+  _ownerId: IUser;
   name: string;
   type: string;
   origin: string;
