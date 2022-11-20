@@ -5,7 +5,7 @@
             <div class="card_datails">
 
                 <h1>Name: {{wine.name}}</h1>
-                <!-- <h3>Created by: Alex Petkov</h3> -->
+                <h3>Created by: {{wine._ownerId.firstName}} {{wine._ownerId.lastName}}</h3>
                 <div class="card_wine">
                     <p class="card-keyword">TYPE: {{wine.type}}</p>
                     <p class="card-location">ORIGIN: {{wine.origin}}</p>
@@ -54,14 +54,16 @@
             <div class="card_datails">
                 <h1>Likes</h1>
                 <div class="card_vote">
-                    <!-- Show the rating of votes, if there are no votes yet, the number must be 0. -->
                     <p class="PV">Total likes: {{totalLikes}}</p>
                 </div>
-                <!-- If there are already people who have cast their vote for the post, separate their emails with a comma and a space ", " -->
-                <p class="disc">People who the wine post - alex@gmai.com, petar@gmail.com, petq@gmail.com</p>
-
-                <!-- If not display: -->
-                <p class="disc">People who liked the wine post - No likes yet.</p>
+                <!-- if there are likes -->
+                <ng-container *ngIf="peopleLiked; else noLikes">
+                    <p class="disc">People who the wine post - {{peopleLiked}}</p>
+                </ng-container>
+                <!-- No Likes -->
+                <ng-template #noLikes>
+                    <p class="disc">People who liked the wine post - No likes yet.</p>
+                </ng-template>
             </div>
         </div>
     </div>

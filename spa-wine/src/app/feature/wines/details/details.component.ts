@@ -18,25 +18,23 @@ export class DetailsComponent implements OnInit {
   user$: Observable<IUser | undefined> = this.userService.currentUser$;
   isCreator: boolean = false;
   totalLikes: number = 0;
-  hasLiked!: boolean 
-
+  hasLiked!: boolean;
+  peopleLiked!: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private wineService: WineService,
     private userService: UserService,
     private route: Router,
-    private componentStore: ComponentStore<{ wine: IWine['likesList'] }>
-  ) {
-
-
-  }
+    // private componentStore: ComponentStore<{ wine: IWine}>
+    ) 
+  {}
 
   ngOnInit(): void {
-
     // -- with Resolver --:
     this.wine = this.activatedRoute.snapshot.data['wine'];
     this.totalLikes = this.wine.likesList.length;
+    this.peopleLiked = this.wine.likesList.map((x) => x.email).join(', ');
 
     //// -- without Resolver -- mergeMap!!
     // this.activatedRoute.params.subscribe((params) => {
@@ -45,14 +43,16 @@ export class DetailsComponent implements OnInit {
     //   this.wine = wine
     // });
     // });
+
     this.user$.subscribe((user) => {
-      this.isCreator = user?._id == this.wine._ownerId;
-      this.hasLiked = this.wine.likesList.some(x => x == user?._id)
+      this.isCreator = user?._id == this.wine._ownerId._id;
+      this.hasLiked = this.wine.likesList.some((x) => x._id == user?._id);
     });
   }
 
   deleteHandler(): void {
     const wineId = this.activatedRoute.snapshot.data['wine']._id;
+
     this.wineService.deleteOne$(wineId).subscribe({
       next: () => {
         this.route.navigate(['/wine/all']);
@@ -77,6 +77,7 @@ export class DetailsComponent implements OnInit {
       .subscribe((wine) => {
         this.totalLikes = wine.likesList.length;
         this.hasLiked = true;
+        this.peopleLiked = wine.likesList.map((x) => x.email).join(', ');
       });
   }
 
@@ -92,7 +93,7 @@ export class DetailsComponent implements OnInit {
       .subscribe((wine) => {
         this.totalLikes = wine.likesList.length;
         this.hasLiked = false;
-
+        this.peopleLiked = wine.likesList.map((x) => x.email).join(', ');
       });
   }
 }
