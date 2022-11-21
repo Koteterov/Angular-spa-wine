@@ -12,9 +12,18 @@ router.get("/", async (req, res) => {
     res.status(400).json({ message: "Bad request" });
   }
 });
+
 router.get("/my", async (req, res) => {
   try {
     res.json(await api.getMy(req.query.userId));
+  } catch (err) {
+    res.status(400).json({ message: "Bad request" });
+  }
+});
+
+router.get("/my/likes", async (req, res) => {
+  try {
+    res.json(await api.findLikedWines(req.query.userId));
   } catch (err) {
     res.status(400).json({ message: "Bad request" });
   }

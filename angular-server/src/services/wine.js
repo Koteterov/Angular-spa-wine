@@ -54,6 +54,14 @@ async function unlike(itemId, userId) {
   );
 }
 
+async function findLikedWines(userId) {
+  return await Item.find({
+    likesList: userId,
+  })
+}
+
+
+
 module.exports = {
   getAll,
   getMy,
@@ -63,4 +71,5 @@ module.exports = {
   deleteById,
   like,
   unlike,
+  findLikedWines
 };
