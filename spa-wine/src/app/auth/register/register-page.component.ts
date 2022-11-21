@@ -69,7 +69,7 @@ export class RegisterPageComponent implements OnInit {
 
     this.userService.register$(this.registerForm.value).subscribe({
       next: () => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/wine/my-wines']);
       },
       error: (err) => {
         this.errorMessage = err.error.message;

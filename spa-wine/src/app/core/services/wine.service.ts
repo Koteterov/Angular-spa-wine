@@ -39,6 +39,11 @@ export class WineService {
       `${environment.URL}/data/catalog/my?userId=${userId}`
     );
   }
+  getMyLikes$(userId: string): Observable<IWine[]> {
+    return this.http.get<IWine[]>(
+      `${environment.URL}/data/catalog/my/likes?userId=${userId}`
+    );
+  }
 
   findWines$(search: string = ''): Observable<IWine[]> {
     return this.http.get<IWine[]>(

@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
 
     this.userService.login$(this.loginForm.value).subscribe({
       next: (user) => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/wine/my-wines']);
         
         this.messageBus.notify({text: "Successfully logged in", type: MessageType.Success})
       },
