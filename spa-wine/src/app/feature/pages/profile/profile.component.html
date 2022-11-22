@@ -39,7 +39,7 @@
         <ng-container *ngFor="let wine of myLikes">
             <div class="info">
                 <h2 class="title">{{wine.name}}</h2>
-                <h4 class="type">type: {{wine.name}}</h4>
+                <h4 class="type">type: {{wine.type}}</h4>
                 <div class="see-more">
                     <a [routerLink]="['/wine/details', wine._id]">See More...</a>
                 </div>
