@@ -36,8 +36,8 @@ export class ProfileComponent implements OnInit {
         next: (myLikes) => {
           this.myLikes = myLikes;
         },
-        error: () => {
-          this.router.navigate(['/user/login']);
+        error: (err) => {
+          console.log(err.error.message);
         },
       });
 
@@ -53,8 +53,9 @@ export class ProfileComponent implements OnInit {
         next: (myWines) => {
           this.myWines = myWines;
         },
-        error: () => {
-          this.router.navigate(['/user/login']);
+        error: (err) => {
+          console.log(err.error.message);
+
         },
       });
   }
