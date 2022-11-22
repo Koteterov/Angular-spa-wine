@@ -5,7 +5,7 @@ import {
   ActivatedRouteSnapshot,
 } from '@angular/router';
 import { WineService } from 'src/app/core/services/wine.service';
-import { IWine } from 'src/app/shared/interfaces/wine';
+import { IWine } from 'src/app/core/interfaces/wine';
 
 @Injectable({
   providedIn: 'root',

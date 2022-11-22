@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { IUser } from 'src/app/shared/interfaces/user';
+import { IUser } from 'src/app/core/interfaces/user';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

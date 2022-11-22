@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IWine } from 'src/app/shared/interfaces/wine';
+import { IWine } from 'src/app/core/interfaces/wine';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

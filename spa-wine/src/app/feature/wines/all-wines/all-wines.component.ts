@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { WineService } from 'src/app/core/services/wine.service';
-import { IWine } from 'src/app/shared/interfaces/wine';
+import { IWine } from 'src/app/core/interfaces/wine';
 import { NgForm, NgModel } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, mergeMap, Subject } from 'rxjs';
 

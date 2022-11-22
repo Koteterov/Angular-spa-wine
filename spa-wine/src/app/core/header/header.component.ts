@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IUser } from 'src/app/shared/interfaces/user';
+import { IUser } from 'src/app/core/interfaces/user';
 import { UserService } from '../services/user.service';
 
 @Component({

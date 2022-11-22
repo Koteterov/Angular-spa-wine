@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { mergeMap } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 import { WineService } from 'src/app/core/services/wine.service';
-import { IWine } from 'src/app/shared/interfaces/wine';
+import { IWine } from 'src/app/core/interfaces/wine';
 
 @Component({
   selector: 'app-my-wines',
