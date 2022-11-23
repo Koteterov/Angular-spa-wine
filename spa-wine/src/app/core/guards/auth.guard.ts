@@ -36,7 +36,6 @@ export class AuthGuard implements CanActivate {
         // const retunUrl = route.routeConfig?.path;
 
         const retunUrl = state.url;
-        console.log('reoute', state.url);
         return this.route.createUrlTree(['/user/login'], {
           queryParams: { retunUrl },
         });

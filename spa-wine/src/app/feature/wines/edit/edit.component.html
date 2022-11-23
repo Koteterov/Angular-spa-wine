@@ -12,7 +12,7 @@
                     <input #name="ngModel" [ngModel]="wine?.name" type="text" class="inputFields" id="title" name="name"
                         required minlength="3" />
 
-                    <ng-container *ngIf=" name.touched && name.invalid">
+                    <ng-container *ngIf=" name.dirty && name.invalid">
                         <app-error *ngIf="name.errors?.['required']"> Name is required! </app-error>
                         <app-error *ngIf="name.errors?.['minlength']"> Name must be at leat 3 letters long!
                         </app-error>
@@ -28,7 +28,7 @@
                         <option value="Sparkling">Sparkling</option>
                     </select>
 
-                    <ng-container *ngIf="type.touched && type.invalid">
+                    <ng-container *ngIf="type.dirty && type.invalid">
                         <app-error *ngIf="type.errors?.['required']"> Please choose type! </app-error>
                     </ng-container>
 
@@ -38,7 +38,7 @@
                     <input #origin="ngModel" [ngModel]="wine?.origin" type="text" class="inputFields" id="origin"
                         name="origin" required minlength="3" />
 
-                    <ng-container *ngIf="origin.touched && origin.invalid">
+                    <ng-container *ngIf="origin.dirty && origin.invalid">
                         <app-error *ngIf="origin.errors?.['required']"> Origin is required! </app-error>
                         <app-error *ngIf="origin.errors?.['minlength']"> Origin must be at leat 3 letters long!
                         </app-error>
@@ -50,7 +50,7 @@
                     <input #price="ngModel" [ngModel]="wine?.price" type="number" class="inputFields" id="price"
                         name="price" min="0.01" required />
 
-                    <ng-container *ngIf="price.touched && price.invalid">
+                    <ng-container *ngIf="price.dirty && price.invalid">
                         <app-error *ngIf="price.errors?.['required']"> Price is required! </app-error>
                         <app-error *ngIf="price.errors?.['min']"> Price must be a positive number! </app-error>
                     </ng-container>
@@ -61,7 +61,7 @@
                     <input #image="ngModel" [ngModel]="wine?.image" type="text" class="inputFields" id="image"
                         name="image" required minlength="3" />
 
-                    <ng-container *ngIf="image.touched && image.invalid">
+                    <ng-container *ngIf="image.dirty && image.invalid">
                         <app-error *ngIf="image.errors?.['required']"> Image is required! </app-error>
                         <app-error *ngIf="image.errors?.['minlength']"> The field must be must be a valid url!
                         </app-error>
@@ -73,7 +73,7 @@
                     <textarea #description="ngModel" [ngModel]="wine?.description" id="description" class="inputFields"
                         name="description" required minlength="5"></textarea>
 
-                    <ng-container *ngIf="description.touched && description.invalid">
+                    <ng-container *ngIf="description.dirty && description.invalid">
                         <app-error *ngIf="description.errors?.['required']"> Description is required! </app-error>
                         <app-error *ngIf="description.errors?.['minlength']"> Description must be at leat 5 letters
                             long!
