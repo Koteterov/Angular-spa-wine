@@ -29,8 +29,14 @@ export class AuthGuard implements CanActivate {
         if (isLoggedIn) {
           return true;
         }
+        // if there is no lazy loading:
+        //------------------------------
         // const retunUrl = route.url.map((x) => x.path).join('/');
-        const retunUrl = route.routeConfig?.path;
+        // or:
+        // const retunUrl = route.routeConfig?.path;
+
+        const retunUrl = state.url;
+        console.log('reoute', state.url);
         return this.route.createUrlTree(['/user/login'], {
           queryParams: { retunUrl },
         });

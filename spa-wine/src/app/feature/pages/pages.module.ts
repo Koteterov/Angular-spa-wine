@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -11,7 +10,6 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     HomePageComponent,
     NotFoundPageComponent,
-    ProfileComponent
   ],
   
   imports: [
@@ -20,7 +18,6 @@ import { ProfileComponent } from './profile/profile.component';
   ],
 
   exports: [
-    // HomePageComponent
   ]
 })
 export class PagesModule { }

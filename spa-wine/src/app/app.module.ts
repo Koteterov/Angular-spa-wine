@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
-import { ErrorHandlerInterceptor } from './core/error-handler.interceptor';
 import { UserService } from './core/services/user.service';
 import { WinesModule } from './feature/wines/wines.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,8 +17,8 @@ import { PagesModule } from './feature/pages/pages.module';
     HttpClientModule,
     CoreModule,
     PagesModule,
-    AuthModule,
-    WinesModule,
+    // AuthModule, // not needed with lazy loading 
+    // WinesModule, // not needed with lazy loading
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
@@ -31,11 +30,6 @@ import { PagesModule } from './feature/pages/pages.module';
       },
       deps: [UserService],
       multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      multi: true,
-      useClass: ErrorHandlerInterceptor,
     },
   ],
   bootstrap: [AppComponent],

@@ -9,28 +9,28 @@ import { MyWinesComponent } from './my-wines/my-wines.component';
 
 const routes: Routes = [
   {
-    path: 'wine/create',
+    path: 'create',
     component: CreateComponent,
     title: 'Create',
     canActivate: [AuthGuard],
   },
-  { path: 'wine/all', 
+  { path: 'all', 
     component: AllWinesComponent, 
     title: 'All Wines' },
   {
-    path: 'wine/my-wines',
+    path: 'my-wines',
     component: MyWinesComponent,
     title: 'My Wines',
     canActivate: [AuthGuard],
   },
   {
-    path: 'wine/edit/:wineId',
+    path: 'edit/:wineId',
     component: EditComponent,
     title: 'Edit',
     canActivate: [AuthGuard],
   },
   {
-    path: 'wine/details/:wineId',
+    path: 'details/:wineId',
     resolve: { wine: WineDetailsResolver },
     component: DetailsComponent,
     title: 'Details',

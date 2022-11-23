@@ -6,6 +6,7 @@ import { LoginPageComponent } from './login/login-page.component';
 import { CoreModule } from '../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -13,6 +14,7 @@ import { AuthRoutingModule } from './auth-routing.module';
   declarations: [
     RegisterPageComponent,
     LoginPageComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule, 
