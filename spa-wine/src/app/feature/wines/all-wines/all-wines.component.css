@@ -19,7 +19,7 @@ html {
   width: 19rem;
   height: 30rem;
   position: relative;
-  color: rgb(19, 66, 27);
+  color: white;
   box-shadow: 0 0 10px #00000070;
 }
 
@@ -28,7 +28,6 @@ p {
   text-align: center;
   margin-top: 10px;
   font-size: 16px;
-  color: white;
   font-family: 'Open Sans', sans-serif;
   ;
 
@@ -60,21 +59,6 @@ p {
 .info h2 {
   font-size: 18px;
   text-align: center;
-}
-
-.details-btn .details {
-  font-size: 18px;
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 12px;
-  position: absolute;
-  bottom: 10px;
-  right: 35%;
-}
-
-.details:hover {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .no-record {
@@ -122,15 +106,14 @@ input {
   background: rgba(20, 20, 20, .6);
   font-size: 18px;
   color: white;
-  padding: 10px 43px;
+  padding: 10px 33px;
   cursor: pointer;
   transition: .4s;
   border-radius: 12px;
-  margin-left: 10px;
-
+  margin-top: 16px;
 }
 
 #btn:hover {
   background: rgba(20, 20, 20, .8);
-  padding: 10px 80px;
+  padding: 12px 50px;
 }
