@@ -9,7 +9,8 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { WinesRoutingModule } from './wines-routing.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MyWinesComponent } from './my-wines/my-wines.component'
+import { MyWinesComponent } from './my-wines/my-wines.component';
+import { WineInfoDirective } from './wine-info.directive';
 
 
 
@@ -19,7 +20,8 @@ import { MyWinesComponent } from './my-wines/my-wines.component'
     AllWinesComponent,
     DetailsComponent,
     EditComponent,
-    MyWinesComponent
+    MyWinesComponent,
+    WineInfoDirective,
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,5 @@ import { MyWinesComponent } from './my-wines/my-wines.component'
     WinesRoutingModule,
     MatProgressSpinnerModule
   ],
-  
 })
 export class WinesModule { }

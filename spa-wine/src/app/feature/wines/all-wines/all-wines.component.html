@@ -11,7 +11,7 @@
 
         <div>
             <div>
-                <label for="site-search">Search for wines:</label>
+                <label appWineInfo for="site-search">Search for wines:</label>
             </div>
             <form>
                 <input ngModel type="search" id="site-search" name="search"
@@ -25,7 +25,7 @@
 
         <div class="container">
             <ng-container *ngIf="wineList.length > 0">
-                <div class="wine" *ngFor="let wine of wineList">
+                <div appWineInfo class="wine" *ngFor="let wine of wineList">
                     <div class="info-container">
                         <img src={{wine.image}}>
                         <div class="info">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="details-btn">
-                        <a [routerLink]="['/wine/details', wine._id]" class="details">Details</a>
+                        <button appWineInfo [routerLink]="['/wine/details', wine._id]" id="btn">Details</button>
                     </div>
                 </div>
             </ng-container>
