@@ -9,6 +9,10 @@ import { UserService } from './core/services/user.service';
 import { WinesModule } from './feature/wines/wines.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './feature/pages/pages.module';
+import { StoreModule } from '@ngrx/store';
+import { currentUserReducer, IRootState } from './+store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,10 +21,17 @@ import { PagesModule } from './feature/pages/pages.module';
     HttpClientModule,
     CoreModule,
     PagesModule,
-    // AuthModule, // not needed with lazy loading 
+    // AuthModule, // not needed with lazy loading
     // WinesModule, // not needed with lazy loading
     AppRoutingModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot<IRootState>({
+      currentUser: currentUserReducer,
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [
     {

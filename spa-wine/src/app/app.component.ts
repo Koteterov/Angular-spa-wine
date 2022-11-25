@@ -23,7 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.messageBus.onNewMessage$.subscribe(
       (newMessage) => {
-        console.log(newMessage);
         this.message = newMessage?.text || '';
         this.isMessageError = newMessage?.type == MessageType.Error;
 

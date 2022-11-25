@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { IRootState, login, logout } from 'src/app/+store';
 import { IUser } from 'src/app/core/interfaces/user';
 import { environment } from 'src/environments/environment';
 
@@ -9,11 +11,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  private _currentUser = new BehaviorSubject<IUser | undefined>(undefined);
-  currentUser$ = this._currentUser.asObservable();
+  //-- global state using Subject --
+  // private _currentUser = new BehaviorSubject<IUser | undefined>(undefined);
+  // currentUser$ = this._currentUser.asObservable();
+
+  currentUser$ = this.store.select((state) => state.currentUser);
   isLoggedIn$ = this.currentUser$.pipe(map((user) => !!user));
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store<IRootState>) {}
 
   register$(data: {
     firstName: string;
@@ -54,11 +59,17 @@ export class UserService {
   }
 
   handleLogin(newUser: IUser) {
-    this._currentUser.next(newUser);
+    this.store.dispatch(login({ user: newUser }));
+
+    //-- global state using Subject --
+    // this._currentUser.next(newUser);
   }
 
   handleLogout() {
-    this._currentUser.next(undefined);
+    this.store.dispatch(logout());
+
+    //-- global state using Subject --
+    // this._currentUser.next(undefined);
   }
 
   getProfile$(): Observable<IUser> {

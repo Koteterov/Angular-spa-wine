@@ -34,12 +34,12 @@ export class WineService {
     );
   }
 
-  getMy$(userId: string): Observable<IWine[]> {
+  getMy$(userId: string | undefined): Observable<IWine[]> {
     return this.http.get<IWine[]>(
       `${environment.URL}/data/catalog/my?userId=${userId}`
     );
   }
-  getMyLikes$(userId: string): Observable<IWine[]> {
+  getMyLikes$(userId: string | undefined): Observable<IWine[]> {
     return this.http.get<IWine[]>(
       `${environment.URL}/data/catalog/my/likes?userId=${userId}`
     );
