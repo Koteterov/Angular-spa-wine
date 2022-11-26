@@ -63,27 +63,6 @@ async function findLikedWines(userId) {
   });
 }
 
-async function getPaginatedList(name, startIndex, limit) {}
-
-function getThemesList(req, res, next) {
-  const title = req.query.title || "";
-  const startIndex = +req.query.startIndex || 0;
-  const limit = +req.query.limit || Number.MAX_SAFE_INTEGER;
-
-  Promise.all([
-    themeModel
-      .find({ themeName: { $regex: title, $options: "i" } })
-      .skip(startIndex)
-      .limit(limit)
-      .populate("userId"),
-    themeModel
-      .find({ themeName: { $regex: title, $options: "i" } })
-      .countDocuments(),
-  ])
-    .then(([results, totalResults]) => res.json({ results, totalResults }))
-    .catch(next);
-}
-
 module.exports = {
   getAll,
   getMy,
