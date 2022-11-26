@@ -6,8 +6,13 @@ const api = require("../services/wine");
 const errorMapper = require("../util/errorMapper");
 
 router.get("/", async (req, res) => {
+  const name = req.query.name || "";
+  const startIndex = +req.query.startIndex || 0;
+  const limit = +req.query.limit || Number.MAX_SAFE_INTEGER;
+
   try {
-    res.json(await api.getAll(req.query.name));
+    [result, totalPages] = await api.getAll(name, startIndex, limit);
+    res.json({ result, totalPages });
   } catch (err) {
     res.status(400).json({ message: "Bad request" });
   }
