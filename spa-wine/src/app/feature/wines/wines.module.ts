@@ -8,11 +8,10 @@ import { AllWinesComponent } from './all-wines/all-wines.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { WinesRoutingModule } from './wines-routing.module';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MyWinesComponent } from './my-wines/my-wines.component';
 import { WineInfoDirective } from './wine-info.directive';
-
-
 
 @NgModule({
   declarations: [
@@ -29,7 +28,8 @@ import { WineInfoDirective } from './wine-info.directive';
     FormsModule,
     CoreModule,
     WinesRoutingModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
 })
-export class WinesModule { }
+export class WinesModule {}

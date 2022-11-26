@@ -7,11 +7,27 @@
     </ng-container>
 
     <ng-template #winePosts>
-        <h1>Wine Posts</h1>
+        <h1>Wine Posts </h1>
+
+        <div>
+            <h1>
+                Select Pages
+                <mat-paginator #paginatorSettings [length]="totalInCollection" [pageSize]="pageSize"
+                    [pageSizeOptions]="[5, 10, 15, 20]" [showFirstLastButtons]="true" (page)="paginatorHandler($event)">
+                </mat-paginator>
+
+            </h1>
+        </div>
+
+
+
 
         <div>
             <div>
-                <label appWineInfo for="site-search">Search for wines:</label>
+                <label appWineInfo for="site-search">Search for wines:
+
+                </label>
+
             </div>
             <form>
                 <input ngModel type="search" id="site-search" name="search"

@@ -1,8 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IWine } from 'src/app/core/interfaces/wine';
 import { environment } from 'src/environments/environment';
+import { responseWithPages } from '../interfaces/paginatedResponse';
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +19,20 @@ export class WineService {
     });
   }
 
-  getAll$(): Observable<IWine[]> {
-    return this.http.get<IWine[]>(`${environment.URL}/data/catalog`);
+  getAll$(
+    name: string = '',
+    startIndex: number,
+    limit: number
+  ): Observable<any> {
+    return this.http.get<IWine[]>(`${environment.URL}/data/catalog`, {
+      params: new HttpParams({
+        fromObject: {
+          name,
+          startIndex,
+          limit,
+        },
+      }),
+    });
   }
 
   getOne$(wineId: string): Observable<IWine> {
@@ -45,8 +60,8 @@ export class WineService {
     );
   }
 
-  findWines$(search: string = ''): Observable<IWine[]> {
-    return this.http.get<IWine[]>(
+  findWines$(search: string = ''): Observable<responseWithPages<IWine>> {
+    return this.http.get<responseWithPages<IWine>>(
       `${environment.URL}/data/catalog?name=${search}`
     );
   }
@@ -75,14 +90,4 @@ export class WineService {
       }
     );
   }
-
-  //
-  // loadThemeList(searchTerm: string = ''): Observable<ITheme[]> {
-  //   return this.http.get<ITheme[]>(`${apiUrl}/themes?title=${searchTerm}`, {
-  //     params: new HttpParams({
-  //       fromObject: {
-  //       }
-  //     })
-  //   });
-  // }
 }
