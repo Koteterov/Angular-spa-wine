@@ -23,16 +23,21 @@ export class LoginPageComponent {
     private router: Router,
     private messageBus: MessageBusService,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {}
 
   handleLogin(): void {
     this.errorMessage = '';
+    this.loginForm.value.password = this.loginForm.value.password.trim();
 
+    if (this.loginForm.invalid) {
+      return;
+    }
     this.userService.login$(this.loginForm.value).subscribe({
       next: () => {
-        
         if (this.activatedRoute.snapshot.queryParams['retunUrl']) {
-          this.router.navigateByUrl(this.activatedRoute.snapshot.queryParams['retunUrl']);
+          this.router.navigateByUrl(
+            this.activatedRoute.snapshot.queryParams['retunUrl']
+          );
         } else {
           this.router.navigate(['/wine/my-wines']);
         }

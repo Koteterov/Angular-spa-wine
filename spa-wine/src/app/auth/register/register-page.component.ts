@@ -27,7 +27,7 @@ export class RegisterPageComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) {
     this.registerForm = this.formBuilder.group({
       firstName: new FormControl(null, [
@@ -54,14 +54,25 @@ export class RegisterPageComponent implements OnInit {
       Validators.minLength(5),
       sameValueValidate,
     ]);
+
   }
 
   ngOnInit(): void {
-    this.registerForm.get('rePassword')!.valueChanges.subscribe(console.log);
+    // this.registerForm.get('rePassword')!.valueChanges.subscribe(console.log);
   }
+
+  cleanForm(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach((key) =>
+      formGroup.get(key)?.setValue(formGroup.get(key)?.value.trim())
+    );
+  }
+
 
   handleRegister(): void {
     this.errorMessage = '';
+
+    //trimming input
+    this.cleanForm(this.registerForm);
 
     if (this.registerForm.invalid) {
       return;
