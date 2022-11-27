@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const api = require("../services/user");
+const validator = require("validator")
 
 const { SESSION_NAME } = require("../config/constants");
 
@@ -9,6 +10,9 @@ router.post("/register", async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
   try {
+    if (!validator.isEmail(email)) {
+      throw new Error("Invalid email!");
+    }
     
     const result = await api.register(firstName, lastName, email, password);
     const token = result.accessToken
