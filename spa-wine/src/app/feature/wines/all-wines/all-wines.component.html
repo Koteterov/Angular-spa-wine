@@ -8,35 +8,29 @@
 
     <ng-template #winePosts>
         <h1>Wine Posts </h1>
-
         <div>
-            <h1>
-                Select Pages
+            <div class="catalog" id="select-pages">
+                Select pages
                 <mat-paginator #paginatorSettings [length]="totalInCollection" [pageSize]="pageSize"
                     [pageSizeOptions]="[5, 10, 15, 20]" [showFirstLastButtons]="true" (page)="paginatorHandler($event)">
                 </mat-paginator>
+            </div>
 
-            </h1>
-        </div>
-
-
-
-
-        <div>
             <div>
                 <label appWineInfo for="site-search">Search for wines:
-
                 </label>
 
             </div>
             <form>
                 <input ngModel type="search" id="site-search" name="search"
                     (ngModelChange)="this.searchUpdate.next($event)">
+
             </form>
             <!-- <form #searchForm="ngForm" (ngSubmit)="handleSearch()" id="form">
                 <input #search="ngModel" ngModel type="search" id="site-search" name="search">
                 <button id="btn">Search</button>
             </form> -->
+
         </div>
 
         <div class="container">

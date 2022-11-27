@@ -33,7 +33,8 @@ p {
 
 }
 
-.catalog h1 {
+.catalog h1,
+#select-pages {
   text-align: center;
   margin-top: 45px;
   padding: 10px;
@@ -88,7 +89,7 @@ label {
   display: inline-block;
   border-radius: 10px;
   padding: 10px;
-  margin-top: 4rem;
+  margin-top: 2rem;
 
 }
 
@@ -116,4 +117,11 @@ input {
 #btn:hover {
   background: rgba(20, 20, 20, .8);
   padding: 12px 50px;
+}
+
+#select-pages {
+  margin-top: 45px;
+  padding: 10px;
+  font-size: 26px;
+  text-transform: none;
 }
