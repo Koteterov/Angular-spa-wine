@@ -10,7 +10,10 @@ const usersController = require("./src/controllers/users");
 
 async function start() {
   try {
-    const db = await mongoose.connect("mongodb://127.0.0.1:27017/angularWine", { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect("mongodb://127.0.0.1:27017/angularWine", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
     console.log("DB Ready");
   } catch (err) {
@@ -26,7 +29,7 @@ async function start() {
   app.use(express.json());
   app.use(
     cors({
-      origin: "http://localhost:4200",
+      origin: ["http://localhost:4200", "https://angular-project-wine.web.app"],
       credentials: true,
     })
   );
@@ -37,6 +40,5 @@ async function start() {
 
   app.listen(3030, () => console.log("REST Service started on port 3030"));
 }
-
 
 start();
