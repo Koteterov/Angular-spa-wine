@@ -88,5 +88,22 @@ a {
         padding: 0;
     }
 }
-/* html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+#loader {
+    bottom: 0;
+    height: 60px;
+    left: 0;
+    margin: auto;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 175px;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(72, 39, 13, 0.75);
+    display: inline-block;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+}

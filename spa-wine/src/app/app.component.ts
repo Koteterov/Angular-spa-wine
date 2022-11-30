@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
         if (this.message) {
           setTimeout(() => {
             this.messageBus.clear();
-          }, 3000);
+          }, 1000);
         }
       }
     );
