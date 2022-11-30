@@ -45,9 +45,9 @@
                 </div>
             </div>
         </ng-container>
-        
-        <ng-container *ngIf="(myWines$ | async)?.length == 0">
-        <h2 class="no-blog-in-profile">You have not liked wines yet…</h2>
+
+        <ng-container *ngIf="(myLikes$ | async)?.length == 0">
+            <h2 class="no-blog-in-profile"> You have not liked wines yet…</h2>
         </ng-container>
     </div>
 
