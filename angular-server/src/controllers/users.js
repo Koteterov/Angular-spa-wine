@@ -64,7 +64,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", isAuth(), async (req, res) => {
   try {
     const result = await api.getProfileInfo(req.user._id);
 
