@@ -46,8 +46,7 @@ export class UserService {
   }
 
   authenticate(): Observable<IUser> {
-    return this.http
-      .get<IUser>(`${environment.URL}/users/profile`, { withCredentials: true })
+    return this.http.get<IUser>(`${environment.URL}/users/profile`, { withCredentials: true })
       .pipe(
         tap((currentProfile) => {
           this.handleLogin(currentProfile);
