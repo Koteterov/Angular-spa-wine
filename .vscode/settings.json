@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1b156955-2465-40da-9831-abe121749988/AppServices/subscriptions/1b156955-2465-40da-9831-abe121749988/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/angular-spa",
+    "appService.deploySubpath": "spa-wine\\dist"
+}

@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  URL:'http://localhost:3030'
+  URL:'http://localhost:3030',
+
+  // URL: 'https://angular-spa-api.onrender.com',
+
+  // URL: 'https://angular-rest-api.azurewebsites.net',
 };
 
 /*

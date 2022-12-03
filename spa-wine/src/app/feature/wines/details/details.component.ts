@@ -4,14 +4,15 @@ import { ComponentStore } from '@ngrx/component-store';
 import { map, mergeMap, Observable, pipe } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 import { WineService } from 'src/app/core/services/wine.service';
-import { IUser } from 'src/app/shared/interfaces/user';
-import { IWine } from 'src/app/shared/interfaces/wine';
+import { IUser } from 'src/app/core/interfaces/user';
+import { IWine } from 'src/app/core/interfaces/wine';
+import { WineStore } from './wine.store';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
-  providers: [ComponentStore],
+  providers: [WineStore],
 })
 export class DetailsComponent implements OnInit {
   wine!: IWine;
@@ -21,12 +22,16 @@ export class DetailsComponent implements OnInit {
   hasLiked!: boolean;
   peopleLiked!: string;
 
+  likes$ = this.wineStore.likes$
+
+  l = 0
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private wineService: WineService,
     private userService: UserService,
     private route: Router,
-    // private componentStore: ComponentStore<{ wine: IWine}>
+    private wineStore: WineStore
     ) 
   {}
 
@@ -66,6 +71,16 @@ export class DetailsComponent implements OnInit {
   // TODO - state for likes
 
   likeHandler(): void {
+    
+    this.l++
+    this.wineStore.setState({likesList: this.l})
+    console.log('l>>',this.l);
+    
+    // this.wineStore.likeWine()
+    this.likes$.subscribe(x => {
+      console.log('xxxx', x);
+    })
+
     const wineId = this.activatedRoute.snapshot.data['wine']._id;
     this.wineService
       .likeWine$(wineId)
