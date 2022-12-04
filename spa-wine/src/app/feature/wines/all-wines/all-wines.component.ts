@@ -10,7 +10,6 @@ import {
   tap,
 } from 'rxjs';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { tapResponse } from '@ngrx/component-store';
 
 @Component({
   selector: 'app-all-wines',

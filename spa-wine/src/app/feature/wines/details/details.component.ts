@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ComponentStore } from '@ngrx/component-store';
 import { map, mergeMap, Observable, pipe } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 import { WineService } from 'src/app/core/services/wine.service';
 import { IUser } from 'src/app/core/interfaces/user';
 import { IWine } from 'src/app/core/interfaces/wine';
+<<<<<<< Updated upstream
 import { WineStore } from './wine.store';
+=======
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
+<<<<<<< Updated upstream
   providers: [WineStore],
+=======
+>>>>>>> Stashed changes
 })
 export class DetailsComponent implements OnInit {
   wine!: IWine;
@@ -31,7 +36,10 @@ export class DetailsComponent implements OnInit {
     private wineService: WineService,
     private userService: UserService,
     private route: Router,
+<<<<<<< Updated upstream
     private wineStore: WineStore
+=======
+>>>>>>> Stashed changes
     ) 
   {}
 
@@ -67,8 +75,6 @@ export class DetailsComponent implements OnInit {
       },
     });
   }
-
-  // TODO - state for likes
 
   likeHandler(): void {
     
