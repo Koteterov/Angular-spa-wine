@@ -40,6 +40,9 @@ The application has the following parts:
 * Full name, email, count of created wines, count of liked wines.
 * A list with created wines.
 * A list with liked wines.
+### Errors
+Errors from the backend are also displayed for better user experience. For example, when the email address has alredy been taken.
+These are shown on the screen in red for one second.
 ## Some technical stuff
 * Start development server - run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 * Build the project - run `ng build`. The build artifacts will be stored in the `dist/` directory.
