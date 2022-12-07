@@ -1,9 +1,10 @@
 # Angular single page application 
 
-## Angular 
-Please see folder [spa-wine](https://github.com/Koteterov/Angular-spa-wine/tree/main/spa-wine)
+## Angular  
+- For more information on the project concept and structure please see folder [spa-wine](https://github.com/Koteterov/Angular-spa-wine/tree/main/spa-wine)
+- Also available on internet :point_right: https://angular-project-wine.web.app
 
 ## Rest server
-Please see folder [angular-server](https://github.com/Koteterov/Angular-spa-wine/tree/main/angular-server).
+For more information please see folder [angular-server](https://github.com/Koteterov/Angular-spa-wine/tree/main/angular-server)
 
 
