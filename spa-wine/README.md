@@ -41,6 +41,7 @@ The application has the following parts:
 * The edit form validates each field and shows the necessary information for filling.
 ### Delete Wines - available only for creators of wine posts
 ### Wines of...(user's email) Page
+![my](https://user-images.githubusercontent.com/102145445/206909140-fbdd8485-2524-4733-be2e-f1235408834a.jpg)
 * A list with the created wine posts of the user.
 * Details page can be accessed by 'Details' button.
 ### Profile Page showing user information as below:
