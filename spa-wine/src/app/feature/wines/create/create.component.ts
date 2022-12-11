@@ -12,6 +12,7 @@ export class CreateComponent implements OnInit {
   @ViewChild('createForm') createForm!: NgForm;
 
   errorMessage: string = '';
+  urlPattern = /^https?:\/\//i
 
   constructor(private wineService: WineService, private router: Router) {}
 

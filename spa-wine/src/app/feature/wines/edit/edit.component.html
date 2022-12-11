@@ -59,11 +59,11 @@
                 <li>
                     <label for="image">Wine image:</label>
                     <input #image="ngModel" [ngModel]="wine?.image" type="text" class="inputFields" id="image"
-                        name="image" required minlength="3" />
+                        name="image" required [pattern]="urlPattern" />
 
                     <ng-container *ngIf="image.dirty && image.invalid">
                         <app-error *ngIf="image.errors?.['required']"> Image is required! </app-error>
-                        <app-error *ngIf="image.errors?.['minlength']"> The field must be must be a valid url!
+                        <app-error *ngIf="image.errors?.['pattern']"> The field must be a valid url!
                         </app-error>
                     </ng-container>
 

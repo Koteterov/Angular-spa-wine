@@ -11,6 +11,9 @@ import { IWine } from 'src/app/core/interfaces/wine';
 })
 export class EditComponent implements OnInit {
   @ViewChild('editForm') editForm!: NgForm;
+  
+  urlPattern = /^https?:\/\//i
+
 
   wine: IWine | undefined;
 
