@@ -9,6 +9,8 @@ The application has the following parts:
 * Static page for all guests.
 * They can visit all other sections depending on the authentication status - header information is changed on login and logout and shows the current user after login.
 ### All Wines Page
+![all](https://user-images.githubusercontent.com/102145445/206907921-f47fc6a0-2e05-40b9-acea-b5630f278d2d.jpg)
+
 * Guests can browse all wines posted so far using pagination. They can choose how many pages to see or jump to first or last page.
 * Search for wines.
 * The guest can see wine details by clicking the 'Details' button which will open the details page.
