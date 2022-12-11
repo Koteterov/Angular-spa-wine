@@ -14,12 +14,17 @@ The application has the following parts:
 * Search for wines.
 * The guest can see wine details by clicking the 'Details' button which will open the details page.
 ### Details Page - available by:
-![details](https://user-images.githubusercontent.com/102145445/206908370-99030bb8-5511-4ee6-addc-c8337cb11b8c.jpg)
 1. 'Details' button in Home Page - available for all. Without authentication it will show only general information such as detailed wine information as well as summary of total likes and a list of people who liked the wine post. If authenticated, the user can take advantage of the full functionality of this page, which is:
 * Edit and Delete if the user is an owner of the post (described in more details below).
 * Like and Unlike if the user is NOT an owner of the post.
 2. 'Details' button in Wines of... Page - the list displays owner's wines, therefore buttons 'Edit' and 'Delete' are available.
 3. 'See more...' button in Profile Page - users see buttons 'Edit' and 'Delete' or 'Like' and 'Unlike' depending on whether 'created wines' list or 'liked wines' list is chosen.
+
+Details Page before login:
+![details](https://user-images.githubusercontent.com/102145445/206908370-99030bb8-5511-4ee6-addc-c8337cb11b8c.jpg)
+Details Page after login:
+![details2](https://user-images.githubusercontent.com/102145445/206914035-a1460259-8cc2-4771-b333-6bc2728ff777.jpg)
+
 ### Register Page
 ![register](https://user-images.githubusercontent.com/102145445/206908551-3e9b03b6-506d-4254-bf36-ca0b009fc811.jpg)
 * Guests should register in order to use the functionality of the application.
