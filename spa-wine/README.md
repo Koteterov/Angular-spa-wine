@@ -5,6 +5,7 @@ An application where wine connoisseurs, after authentication, can share their wi
 ## :information_source: Structure
 The application has the following parts:
 ### Home page
+![home](https://user-images.githubusercontent.com/102145445/206906802-924b8c94-ea38-48e3-bb82-18bcd91a8f6c.jpg)
 * Static page for all guests.
 * They can visit all other sections depending on the authentication status - header information is changed on login and logout and shows the current user after login.
 ### All Wines Page
@@ -28,7 +29,7 @@ The application has the following parts:
 
 ## After authentication the users can use the following parts:
 ### Create Wine Post Page
-![create](https://user-images.githubusercontent.com/102145445/206906551-182471ff-1ea5-431c-8d8d-f1c6c4a075a7.jpg)
+
 * The create form validates each field and shows the necessary information for filling.
 ### Edit Wine Page
 * Available only for logged in users who are creators of the wine post.
