@@ -28,6 +28,7 @@ The application has the following parts:
 
 ## After authentication the users can use the following parts:
 ### Create Wine Post Page
+![create](https://user-images.githubusercontent.com/102145445/206906551-182471ff-1ea5-431c-8d8d-f1c6c4a075a7.jpg)
 * The create form validates each field and shows the necessary information for filling.
 ### Edit Wine Page
 * Available only for logged in users who are creators of the wine post.
