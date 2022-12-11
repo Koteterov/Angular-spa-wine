@@ -5,6 +5,7 @@ An application where wine connoisseurs, after authentication, can share their wi
 ## :information_source: Structure
 The application has the following parts:
 ### Home page
+![home](https://user-images.githubusercontent.com/102145445/206907516-a0e10634-60eb-4c20-923c-3ac555c07cd8.jpg)
 * Static page for all guests.
 * They can visit all other sections depending on the authentication status - header information is changed on login and logout and shows the current user after login.
 ### All Wines Page
