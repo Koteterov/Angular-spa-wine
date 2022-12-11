@@ -26,9 +26,11 @@ The application has the following parts:
 * The sign up form validates each field and shows the necessary information for filling.
 * After successful registration the user is automatically logged in and a 'success' message is shown.
 ### Login Page
+![login](https://user-images.githubusercontent.com/102145445/206908775-9c861855-b559-4cbd-8704-17a6c9a737bf.jpg)
 * Registered users can log in by their email and password.
 * The login up form validates each field.
 * After successful login, a 'success' message is shown.
+* The application can be tested with email: peter@abv.bg, password: 22222
 
 ## After authentication the users can use the following parts:
 ### Create Wine Post Page
