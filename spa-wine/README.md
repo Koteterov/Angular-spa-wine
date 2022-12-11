@@ -10,11 +10,11 @@ The application has the following parts:
 * They can visit all other sections depending on the authentication status - header information is changed on login and logout and shows the current user after login.
 ### All Wines Page
 ![all](https://user-images.githubusercontent.com/102145445/206907921-f47fc6a0-2e05-40b9-acea-b5630f278d2d.jpg)
-
 * Guests can browse all wines posted so far using pagination. They can choose how many pages to see or jump to first or last page.
 * Search for wines.
 * The guest can see wine details by clicking the 'Details' button which will open the details page.
 ### Details Page - available by:
+![details](https://user-images.githubusercontent.com/102145445/206908370-99030bb8-5511-4ee6-addc-c8337cb11b8c.jpg)
 1. 'Details' button in Home Page - available for all. Without authentication it will show only general information such as detailed wine information as well as summary of total likes and a list of people who liked the wine post. If authenticated, the user can take advantage of the full functionality of this page, which is:
 * Edit and Delete if the user is an owner of the post (described in more details below).
 * Like and Unlike if the user is NOT an owner of the post.
