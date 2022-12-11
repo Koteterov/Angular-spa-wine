@@ -21,6 +21,7 @@ The application has the following parts:
 2. 'Details' button in Wines of... Page - the list displays owner's wines, therefore buttons 'Edit' and 'Delete' are available.
 3. 'See more...' button in Profile Page - users see buttons 'Edit' and 'Delete' or 'Like' and 'Unlike' depending on whether 'created wines' list or 'liked wines' list is chosen.
 ### Register Page
+![register](https://user-images.githubusercontent.com/102145445/206908551-3e9b03b6-506d-4254-bf36-ca0b009fc811.jpg)
 * Guests should register in order to use the functionality of the application.
 * The sign up form validates each field and shows the necessary information for filling.
 * After successful registration the user is automatically logged in and a 'success' message is shown.
