@@ -45,6 +45,7 @@ The application has the following parts:
 * A list with the created wine posts of the user.
 * Details page can be accessed by 'Details' button.
 ### Profile Page showing user information as below:
+![profile](https://user-images.githubusercontent.com/102145445/206909252-6d45b4ba-690a-48b1-8abc-76e724c06dd1.jpg)
 * Full name, email, count of created wines, count of liked wines.
 * A list with created wines.
 * A list with liked wines.
